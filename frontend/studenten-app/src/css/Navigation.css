@@ -1,0 +1,51 @@
+nav {
+    width: 100vw;
+    height: auto;
+    background-color: white;
+    box-shadow: 0 4px 3px -3px gray;
+    z-index: 9999 !important;
+}
+nav ul {
+    display: flex;
+    justify-content: space-evenly;
+}
+nav li {
+    color: black;
+    list-style-type: none;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav li:hover {
+    color: gray;
+}
+nav ul a:active {
+    border-bottom: 2px solid rgb(18,60,118) !important;
+}
+nav ul a {
+    text-decoration-line: none;
+}
+
+
+nav .logo {
+    width: 200px;
+    position: absolute;
+    top: -34px;
+    left: 100px;
+}
+
+nav .loginLink {
+    position: absolute;
+    right: 0px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+    background-color: rgb(18,60,118);
+    transition: 0.3s;
+}
+nav .loginLink:hover {
+    background-color: #6AC3EF;
+    color: white;
+}
