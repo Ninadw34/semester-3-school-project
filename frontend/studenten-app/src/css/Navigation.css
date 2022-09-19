@@ -21,11 +21,10 @@ nav li {
 nav li:hover {
     color: gray;
 }
-nav ul a:active {
-    border-bottom: 2px solid rgb(18,60,118) !important;
-}
+
 nav ul a {
     text-decoration-line: none;
+    color: black;
 }
 
 

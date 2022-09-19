@@ -1,17 +1,18 @@
 import React from "react";
 import './css/Navigation.css';
 import logo from './css/logo.png';
+import {Link} from "react-router-dom"
 
 export default function Navigation(){
     return(
         <nav>
             <div className="navigation">
                 <ul>
-                    <a href='/'><li><img className="logo" src={logo} alt='logo'/></li></a>
-                    <a href='/'><li>Home</li></a>
-                    <a href='/studentenverenigingen'><li>Studentenverenigingen</li></a>
-                    <a href='/contact'><li>Contact</li></a>
-                    <a href='/login'><li className="loginLink">Login</li></a>
+                    <li><a href="/"><img className="logo" src={logo} alt='logo'/></a></li>
+                    <Link to="/"><li>Home</li></Link>
+                    <Link to="/studentenverenigingen"><li>Studentenverenigingen</li></Link>
+                    <Link to="/contact"><li>Contact</li></Link>
+                    <Link to="/login"><li className="loginLink">Login</li></Link>
                 </ul>
             </div>
         </nav>

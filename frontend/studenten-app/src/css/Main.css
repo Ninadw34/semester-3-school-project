@@ -1,0 +1,20 @@
+.ContentContainer {
+    margin: auto;
+    margin-top: 75px;
+}
+.loginContainer{
+    margin: auto;
+    width: 45%;
+    background-color: #123c76 !important;
+    border-radius: 5px;
+    color: white;
+    padding: 15px;
+}
+.loginContainer li {
+    list-style-type: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+h1 {
+    text-align: center;
+}

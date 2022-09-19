@@ -7,6 +7,7 @@ export default function Bericht(){
         <div className="BerichtenBox">
             <div className="bericht">
                 <img src={Banner} alt="Studentenbar"/>
+                <div className="borderUnderImage"></div>
                 <div className="like">
                     <input id="like" type="checkbox" onClick={Like}/>
                     <span id="likeCounter">0</span>
@@ -27,11 +28,11 @@ function Like() {
     const counter = document.getElementById("likeCounter").innerHTML;
     let aantal = parseInt(counter);   
     
-    like.addEventListener("click", function(){
-        if(like === 'checked'){
+    like.addEventListener("change", function(){
+        if(this.checked){
             aantal = parseInt(counter) + 1;
             document.getElementById("likeCounter").innerHTML = aantal;    
-        }else if(like !== 'checked'){
+        }else if(!this.checked){
             aantal = parseInt(counter) - 1;
             document.getElementById("likeCounter").innerHTML = aantal;
         }
