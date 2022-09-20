@@ -17,4 +17,14 @@
 }
 h1 {
     text-align: center;
+    color: white;
+}
+
+.middleContainter {
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background-color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

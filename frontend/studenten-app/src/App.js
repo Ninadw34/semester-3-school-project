@@ -1,5 +1,6 @@
 import Navigation from "./Navigation";
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Footer from "./Footer";
 import Home from "./pages/Home";
 import Studentenverenigingen from "./pages/StudentenVerenigingen";
 import Contact from "./pages/Contact";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/contact" element={<Contact/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
         </Routes>
+        <Footer/>
       </BrowserRouter>
       
     </>

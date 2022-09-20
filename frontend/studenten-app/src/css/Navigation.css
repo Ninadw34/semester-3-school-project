@@ -31,7 +31,7 @@ nav ul a {
 nav .logo {
     width: 200px;
     position: absolute;
-    top: -34px;
+    top: 32px;
     left: 100px;
 }
 
@@ -45,6 +45,39 @@ nav .loginLink {
     transition: 0.3s;
 }
 nav .loginLink:hover {
-    background-color: #6AC3EF;
+    background-color: #147FA1;
+    color: white;
+}
+
+footer {
+    width: 100%;
+    background-color: rgb(18,60,118);
+    color: white;
+    position: absolute;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    bottom: 0px;
+    margin-bottom: 25px;
+}
+
+footer .logo-footer {
+    width: 200px;
+}
+footer #logo-list {
+    list-style-type: none;
+}
+footer .footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.mini-footer {
+    background-color: #147FA1;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
     color: white;
 }
