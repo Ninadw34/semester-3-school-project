@@ -1,0 +1,26 @@
+image: node:latest
+
+stages:
+  - build
+  - run
+
+starting-npm:
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules
+
+frontend_starting:
+  stage: run
+  script:
+    - npm start
+  artifacts:
+    paths:
+      - .node_modules/
+
+frontend_test:
+  stage: run
+  script:
+    - echo "Hallo test!"
