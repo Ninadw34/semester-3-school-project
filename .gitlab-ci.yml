@@ -18,7 +18,7 @@ frontend_starting:
     - npm start
   artifacts:
     paths:
-      - node_modules/
+      - ./frontend/node_modules/
 
 frontend_test:
   stage: run
