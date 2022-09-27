@@ -1,4 +1,4 @@
-package com.studentenappbackend.StudentenAppBackend;
+package entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,11 +9,11 @@ import javax.persistence.Id;
 public class Student {
 	
 	@Id
-	@Column(name = "idstudent")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int ID;
 	
 	@Column(name = "idstudentenvereniging")
-	public int StudentenVerenigingID;
+	public StudentenVereniging StudentenVerenigingID;
 	
 	@Column(name = "naam")
 	public String Naam;
@@ -24,7 +24,7 @@ public class Student {
 	@Column(name = "password")
 	protected String Password;
 	
-	public Student(String naam, String email, String password, int stvid) {
+	public Student(String naam, String email, String password, StudentenVereniging stvid) {
 		this.Naam = naam;
 		this.Email = email;
 		this.Password = password;
@@ -39,11 +39,11 @@ public class Student {
 		this.ID = id;
 	}
 	
-	public int GetStudentenVerenigingID() {
+	public StudentenVereniging GetStudentenVerenigingID() {
 		return StudentenVerenigingID;
 	}
 	
-	public void SetStudentenVerenigingID(int stvid) {
+	public void SetStudentenVerenigingID(StudentenVereniging stvid) {
 		this.StudentenVerenigingID = stvid;
 	}
 	

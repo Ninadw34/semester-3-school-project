@@ -7,6 +7,12 @@ const StudentenVerenigingen = () => {
         <div className="middleContainter">
           <h2>Alle Studenten Verenigingen</h2>
         </div>
+        <div className="middleContainter">
+          <h2>Alle Studenten Verenigingen</h2>
+        </div>
+        <div className="middleContainter">
+          <h2>Alle Studenten Verenigingen</h2>
+        </div>
       </div>
     );
   };

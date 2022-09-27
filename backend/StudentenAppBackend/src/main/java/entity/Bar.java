@@ -1,15 +1,14 @@
-package com.studentenappbackend.StudentenAppBackend;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package entity;
 
-@Entity(name="bar") 
+import javax.persistence.*;
+
+@Entity
+@Table(name="bar")
 public class Bar {
 	
 	@Id
 	@Column(name = "idbar")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int BarID;
 	
 	@Column(name = "barnaam")
@@ -46,5 +45,10 @@ public class Bar {
 	
 	public void SetLocatie(String locatie) {
 		this.Locatie = locatie;
+	}
+	
+	@Override
+	public String toString() {
+		return "Bar [BarID="+ BarID +", BarNaam = " + BarNaam +", Locatie="+ Locatie +"]";
 	}
 }

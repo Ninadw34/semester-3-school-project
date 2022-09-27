@@ -50,14 +50,12 @@ nav .loginLink:hover {
 }
 
 footer {
-    width: 100%;
+    display: flex;
     background-color: rgb(18,60,118);
     color: white;
-    position: absolute;
+    position: relative;
     padding-top: 20px;
     padding-bottom: 20px;
-    bottom: 0px;
-    margin-bottom: 25px;
 }
 
 footer .logo-footer {
@@ -71,13 +69,12 @@ footer .footer {
     justify-content: space-around;
     align-items: center;
 }
-.mini-footer {
+/* .mini-footer {
     background-color: #147FA1;
-    position: absolute;
-    bottom: 0;
+    position: relative;
     width: 100%;
     padding-top: 5px;
     padding-bottom: 5px;
     text-align: center;
     color: white;
-}
+} */

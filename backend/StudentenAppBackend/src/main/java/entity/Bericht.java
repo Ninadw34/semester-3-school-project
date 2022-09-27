@@ -1,4 +1,4 @@
-package com.studentenappbackend.StudentenAppBackend;
+package entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,14 +9,14 @@ import javax.persistence.Id;
 public class Bericht {
 	
 	@Id
-	@Column(name = "idbericht")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int ID;
 	
 	@Column(name = "idstudentenvereniging")
-	public int StudentenVerenigingID;
+	public StudentenVereniging StudentenVerenigingID;
 	
 	@Column(name = "idbar")
-	public int BarID;
+	public Bar BarID;
 	
 	@Column(name = "likes")
 	public int AantalLikes;
@@ -24,7 +24,7 @@ public class Bericht {
 	@Column(name = "text")
 	public String Text;
 	
-	public Bericht(int id, int stvid, int barid, int likes, String text) {
+	public Bericht(int id, StudentenVereniging stvid, Bar barid, int likes, String text) {
 		this.ID = id;
 		this.StudentenVerenigingID = stvid;
 		this.BarID = barid;
@@ -40,19 +40,19 @@ public class Bericht {
 		this.ID = id;
 	}
 	
-	public int GetStudentenVerenigingID() {
+	public StudentenVereniging GetStudentenVerenigingID() {
 		return StudentenVerenigingID;
 	}
 	
-	public void SetStudentenVerenigingID(int stvid) {
+	public void SetStudentenVerenigingID(StudentenVereniging stvid) {
 		this.StudentenVerenigingID = stvid;
 	}
 	
-	public int GetBarID() {
+	public Bar GetBarID() {
 		return BarID;
 	}
 	
-	public void SetBarID(int idbar) {
+	public void SetBarID(Bar idbar) {
 		this.BarID = idbar;
 	}
 	

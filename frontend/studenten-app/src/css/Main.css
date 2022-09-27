@@ -1,6 +1,8 @@
 .ContentContainer {
     margin: auto;
     margin-top: 75px;
+    min-height: 500px;
+    height: auto;
 }
 .loginContainer{
     margin: auto;

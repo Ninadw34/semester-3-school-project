@@ -1,4 +1,4 @@
-package com.studentenappbackend.StudentenAppBackend;
+package entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class StudentenVereniging {
 	
 	@Id
-	@Column(name = "idstudentenvereniging")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int StudentenVerenigingID;
 	
 	@Column(name = "verenigingnaam")

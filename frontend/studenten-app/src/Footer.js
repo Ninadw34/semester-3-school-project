@@ -18,9 +18,6 @@ export default function Footer(){
                 </ul>
             </div>
         </footer>
-        <div className="mini-footer">
-                <p>Made by: Nina de Weerd 2022</p>
-            </div>
         </>
     );
 }
