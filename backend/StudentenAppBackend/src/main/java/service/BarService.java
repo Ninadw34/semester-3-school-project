@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
+
 
 import entity.Bar;
 import repository.BarRepository;
 
 @Service
-@EnableJpaRepositories(basePackages = {"repository.BarRepository"})
+@ComponentScan({"repository.BarRepository"})
 public class BarService {
 	
 	@Autowired

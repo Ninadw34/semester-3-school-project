@@ -4,12 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Entity(name = "studentenvereniging")
+@Entity
+@Table(name = "studentenvereniging")
 public class StudentenVereniging {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "idstudentenvereniging")
 	public int StudentenVerenigingID;
 	
 	@Column(name = "verenigingnaam")
@@ -22,6 +25,10 @@ public class StudentenVereniging {
 		this.StudentenVerenigingID = stvid;
 		this.VerenigingNaam = vnaam;
 		this.AantalLeden = aantalleden;
+	}
+	
+	public StudentenVereniging() {
+		
 	}
 	
 	public int GetID() {

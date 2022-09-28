@@ -1,6 +1,11 @@
 package entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name="bar")
@@ -21,6 +26,10 @@ public class Bar {
 		this.BarID = barid;
 		this.BarNaam = barnaam;
 		this.Locatie = locatie;
+	}
+	
+	public Bar() {
+		
 	}
 	
 	public int GetID() {

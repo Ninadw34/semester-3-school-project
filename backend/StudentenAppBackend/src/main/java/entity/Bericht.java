@@ -1,21 +1,26 @@
 package entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity(name = "bericht")
+@Entity
+@Table(name="bericht")
 public class Bericht {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	public int ID;
 	
-	@Column(name = "idstudentenvereniging")
+	@OneToOne(targetEntity=StudentenVereniging.class, fetch=FetchType.EAGER)
 	public StudentenVereniging StudentenVerenigingID;
 	
-	@Column(name = "idbar")
+	@OneToOne(targetEntity=Bar.class, fetch=FetchType.EAGER)
 	public Bar BarID;
 	
 	@Column(name = "likes")
@@ -32,6 +37,9 @@ public class Bericht {
 		this.Text = text;
 	}
 	
+	public Bericht() {
+		
+	}
 	public int GetID() {
 		return ID;
 	}

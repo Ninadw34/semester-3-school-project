@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import entity.Bar;
-import repository.BarRepository;
 import service.BarService;
 
 

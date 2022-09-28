@@ -1,18 +1,23 @@
 package entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-@Entity(name = "student")
+@Entity
+@Table(name = "student")
 public class Student {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	public int ID;
 	
-	@Column(name = "idstudentenvereniging")
+	@OneToOne(targetEntity=StudentenVereniging.class, fetch=FetchType.EAGER)
 	public StudentenVereniging StudentenVerenigingID;
 	
 	@Column(name = "naam")
@@ -31,6 +36,9 @@ public class Student {
 		this.StudentenVerenigingID = stvid;		
 	}
 	
+	public Student() {
+		
+	}
 	public int GetID() {
 		return ID;
 	}
