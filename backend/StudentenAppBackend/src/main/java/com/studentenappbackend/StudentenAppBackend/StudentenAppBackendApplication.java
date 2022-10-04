@@ -13,6 +13,7 @@ import repository.BarRepository;
 @SpringBootApplication
 @EnableJpaRepositories(basePackages="repository")
 @EntityScan("entity")
+
 public class StudentenAppBackendApplication {
 
 	public static void main(String[] args) {
