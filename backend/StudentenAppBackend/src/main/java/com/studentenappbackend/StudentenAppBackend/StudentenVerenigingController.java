@@ -12,35 +12,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entity.Bar;
-import service.BarService;
 
+import entity.StudentenVereniging;
+import service.StudentenVerenigingService;
 
 @RestController
-@RequestMapping(path = "/bar")
-public class BarController {
-
-	   @Autowired
-	   BarService barService;
+@RequestMapping(path = "/studentenvereniging")
+public class StudentenVerenigingController {
+	@Autowired
+	StudentenVerenigingService studentenVerenigingService;
 
 	   @GetMapping("")
-	   public List<Bar> GetAllBarren(){
-	      return barService.GetAll();
+	   public List<StudentenVereniging> GetAllStudentenVerenigingen(){
+	      return studentenVerenigingService.GetAll();
 	   }
 
 	   @GetMapping("/{id}")
-	   public Bar GetByID(@PathVariable("id") int id) {
-	      return barService.GetByID(id);
+	   public StudentenVereniging GetByID(@PathVariable("id") int id) {
+	      return studentenVerenigingService.GetByID(id);
 	   }
 
 	   @DeleteMapping("/delete/{id}")
-	   public void DeleteBar(@PathVariable("id") int id) {
-	      barService.DeleteBar(id);
+	   public void DeleteStudent(@PathVariable("id") int id) {
+		   studentenVerenigingService.DeleteStudentenVereniging(id);
 	   }
 
 	   @PostMapping("/addbar")
-	   public void AddBar(@RequestBody Bar bar) {
-	      barService.AddBar(bar);
+	   public void AddStudent(@RequestBody StudentenVereniging stv) {
+		   studentenVerenigingService.AddStudentenVereniging(stv);
 	   }
-
 }

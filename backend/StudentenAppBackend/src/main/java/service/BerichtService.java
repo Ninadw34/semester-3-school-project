@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import repository.BerichtRepository;
 
 
 @Service
-@EnableJpaRepositories(basePackages = {"repository.BarRepository"})
+@ComponentScan({"repository.BerichtRepository"})
 public class BerichtService {
 	
 	@Autowired

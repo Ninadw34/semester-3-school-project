@@ -21,10 +21,12 @@ public class Bar {
 	@Column(name = "locatie")
 	public String Locatie;
 	
-	public Bar(int barid, String barnaam, String locatie) {
-		this.BarID = barid;
+	public Bar(String barnaam, String locatie) {
 		this.BarNaam = barnaam;
 		this.Locatie = locatie;
+	}
+	public Bar(int barid) {
+		this.BarID = barid;
 	}
 	
 	public Bar() {

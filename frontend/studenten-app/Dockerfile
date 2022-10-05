@@ -1,23 +1,15 @@
 
-FROM node:alpine
+FROM node:13.12.0-alpine
 WORKDIR /app
 
-COPY package.json .
-RUN npm install
-COPY . .
-CMD ["npm", "start"]
+ENV PATH /app/node_modules/.bin:$PATH
 
-FROM node:latest
+COPY package.json ./
+COPY package-lock.json ./
 
-WORKDIR /usr/src/app
-
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
-
-COPY package.json /usr/src/app/
 RUN npm install
 
-COPY . /usr/src/app
+COPY . ./
 
 EXPOSE 3000
 CMD [ "npm", "start" ]
