@@ -35,7 +35,9 @@ public class Student {
 		this.Password = password;
 		this.StudentenVerenigingID = stvid;		
 	}
-	
+	public Student(int id) {
+		this.ID = id;
+	}
 	public Student() {
 		
 	}

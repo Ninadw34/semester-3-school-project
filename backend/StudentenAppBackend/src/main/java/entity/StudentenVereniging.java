@@ -21,12 +21,13 @@ public class StudentenVereniging {
 	@Column(name = "leden")
 	public int AantalLeden;
 	
-	public StudentenVereniging(int stvid, String vnaam, int aantalleden) {
-		this.StudentenVerenigingID = stvid;
+	public StudentenVereniging(String vnaam, int aantalleden) {
 		this.VerenigingNaam = vnaam;
 		this.AantalLeden = aantalleden;
 	}
-	
+	public StudentenVereniging(int stvid) {
+		this.StudentenVerenigingID = stvid;
+	}
 	public StudentenVereniging() {
 		
 	}

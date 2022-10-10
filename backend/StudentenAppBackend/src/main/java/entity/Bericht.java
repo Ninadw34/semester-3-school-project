@@ -29,12 +29,15 @@ public class Bericht {
 	@Column(name = "text")
 	public String Text;
 	
-	public Bericht(int id, StudentenVereniging stvid, Bar barid, int likes, String text) {
-		this.ID = id;
+	public Bericht(StudentenVereniging stvid, Bar barid, int likes, String text) {
 		this.StudentenVerenigingID = stvid;
 		this.BarID = barid;
 		this.AantalLikes = likes;
 		this.Text = text;
+	}
+	
+	public Bericht(int berichtid) {
+		this.ID = berichtid;
 	}
 	
 	public Bericht() {
