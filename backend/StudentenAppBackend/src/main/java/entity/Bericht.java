@@ -5,6 +5,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -15,12 +16,14 @@ public class Bericht {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	public int ID;
+	public int BerichtID;
 	
 	@OneToOne(targetEntity=StudentenVereniging.class, fetch=FetchType.EAGER)
+	@JoinColumn(name = "idstudentenvereniging")
 	public StudentenVereniging StudentenVerenigingID;
 	
 	@OneToOne(targetEntity=Bar.class, fetch=FetchType.EAGER)
+	@JoinColumn(name = "idbar")
 	public Bar BarID;
 	
 	@Column(name = "likes")
@@ -37,18 +40,18 @@ public class Bericht {
 	}
 	
 	public Bericht(int berichtid) {
-		this.ID = berichtid;
+		this.BerichtID = berichtid;
 	}
 	
 	public Bericht() {
 		
 	}
 	public int GetID() {
-		return ID;
+		return BerichtID;
 	}
 	
 	public void SetID(int id) {
-		this.ID = id;
+		this.BerichtID = id;
 	}
 	
 	public StudentenVereniging GetStudentenVerenigingID() {

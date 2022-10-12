@@ -1,6 +1,6 @@
 import React from "react";
 import StudentenVerenigingService from "../../../service/StudentenVerenigingService";
-
+import {Link} from "react-router-dom";
 
 class StudentenVerenigingenAdmin extends React.Component {
 
@@ -51,6 +51,7 @@ class StudentenVerenigingenAdmin extends React.Component {
             }
             
           </table>
+          <Link to="/addstudentenvereniging">Studentenvereniging aanmaken</Link>
         </div>
       </div>
     );

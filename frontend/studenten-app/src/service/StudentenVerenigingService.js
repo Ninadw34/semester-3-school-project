@@ -19,5 +19,11 @@ class StudentenVerenigingService {
             headers: headers,
         });
     }
+    AddStudentenVereniging(data){
+        return axios.post(STUDENTENVERENIGING_API_BASE_URL+"/addstudentenvereniging", data, {
+            mode: 'cors',
+            headers: headers,
+        });
+    }
 }
 export default new StudentenVerenigingService();

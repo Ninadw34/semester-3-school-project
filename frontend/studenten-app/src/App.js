@@ -11,6 +11,9 @@ import AddBar from "./pages/admin/bar/AddBar";
 
 import StudentenVerenigingenAdmin from "./pages/admin/studentenvereniging/StudentenVerenigingenAdmin";
 import AddStudentenVereniging from "./pages/admin/studentenvereniging/AddStudentenVereniging";
+
+import BerichtenAdmin from "./pages/admin/bericht/BerichtenAdmin";
+import AddBericht from "./pages/admin/bericht/AddBericht";
 import './css/App.css';
 
 
@@ -30,6 +33,9 @@ function App() {
 
           <Route path="/adminstudentenvereniging" element={<StudentenVerenigingenAdmin/>}></Route>
           <Route path="/addstudentenvereniging" element={<AddStudentenVereniging/>}></Route>
+
+          <Route path="/adminbericht" element={<BerichtenAdmin/>}></Route>
+          <Route path="/addbericht" element={<AddBericht/>}></Route>
           
         </Routes>
       
