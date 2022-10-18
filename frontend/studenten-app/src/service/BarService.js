@@ -35,7 +35,7 @@ class BarService {
         });
     }
     UpdateBar(id, data){
-        return axios.put(BAR_API_BASE_URL+`/updatebar/${id}`, data, {
+        return axios.put(BAR_API_BASE_URL+`/update/${id}`, data, {
             mode: 'cors',
             headers: headers,
         });

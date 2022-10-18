@@ -18,7 +18,7 @@ class StudentenVerenigingenAdmin extends React.Component {
 
   DeleteStudentenVereniging = (id) => {
     StudentenVerenigingService.DeleteStudentenVereniging(id).then((response) => {
-            alert("Bar Verwijderd (Refresh de pagina)");
+            alert("Studentenvereniging Verwijderd (Refresh de pagina)");
             this.setState({
               studentenvereniging: this.state.studentenvereniging.filter(studentenvereniging => studentenvereniging.id !== id)
             });
@@ -30,6 +30,7 @@ class StudentenVerenigingenAdmin extends React.Component {
     return (
       <div className="ContentContainer">
         <h1>Studentenverenigingen page</h1>
+        <Link to="/admin">Ga Terug</Link>
         <div className="middleContainter">
           <h2>Alle Studenten Verenigingen</h2>
           <table>
@@ -45,6 +46,7 @@ class StudentenVerenigingenAdmin extends React.Component {
                   <th>{stv.StudentenVerenigingID}</th>
                   <th>{stv.VerenigingNaam}</th>
                   <td>{stv.AantalLeden}</td>
+                  <td><Link to={`/updatestudentenvereniging/${stv.StudentenVerenigingID}`}>Edit</Link></td>
                   <td><button onClick={() => { this.DeleteStudentenVereniging(stv.StudentenVerenigingID) }}>Delete</button></td>
                 </tr>
               )

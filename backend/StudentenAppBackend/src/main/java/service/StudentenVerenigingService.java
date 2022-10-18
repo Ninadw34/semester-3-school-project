@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
+import entity.Bar;
 import entity.StudentenVereniging;
 import repository.StudentenVerenigingRepository;
 
@@ -23,8 +24,8 @@ public class StudentenVerenigingService {
 	      return verenigingen;
 	}
 	
-	public void AddStudentenVereniging(StudentenVereniging bericht) {
-		studentenVerenigingRep.save(bericht);
+	public void AddStudentenVereniging(StudentenVereniging studentenvereniging) {
+		studentenVerenigingRep.save(studentenvereniging);
 	}
 	
 	public void DeleteStudentenVereniging(int id) {
@@ -32,5 +33,8 @@ public class StudentenVerenigingService {
 	}
 	public StudentenVereniging GetByID(int id) {
 		return studentenVerenigingRep.findById(id).get();
+	}
+	public StudentenVereniging UpdateStudentenVereniging(StudentenVereniging studentenvereniging) {
+		return studentenVerenigingRep.save(studentenvereniging);
 	}
 }

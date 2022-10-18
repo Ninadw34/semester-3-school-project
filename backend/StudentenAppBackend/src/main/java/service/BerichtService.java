@@ -7,6 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
+import entity.Bar;
 import entity.Bericht;
 import repository.BerichtRepository;
 
@@ -34,5 +35,8 @@ public class BerichtService {
 	}
 	public Bericht GetByID(int id) {
 		return berichtRep.findById(id).get();
+	}
+	public Bericht UpdateBericht(Bericht bericht) {
+		return berichtRep.save(bericht);
 	}
 }

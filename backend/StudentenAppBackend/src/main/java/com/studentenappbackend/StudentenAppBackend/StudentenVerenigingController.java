@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import entity.Bar;
 import entity.StudentenVereniging;
 import service.StudentenVerenigingService;
 
@@ -43,4 +43,14 @@ public class StudentenVerenigingController {
 	   public void AddStudent(@RequestBody StudentenVereniging stv) {
 		   studentenVerenigingService.AddStudentenVereniging(stv);
 	   }
+	   
+	   @PutMapping("/update/{id}")
+	    public StudentenVereniging UpdateStudentenVereniging
+	       (@PathVariable int id, @RequestBody StudentenVereniging studentenverenigingInfo) {
+	        
+		    StudentenVereniging studentenvereniging = studentenVerenigingService.GetByID(id);
+		    studentenvereniging.SetNaam(studentenverenigingInfo.GetNaam());
+		    studentenvereniging.SetAantalLeden(studentenverenigingInfo.GetAantalLeden());
+	        return studentenVerenigingService.UpdateStudentenVereniging(studentenvereniging);
+	    }
 }

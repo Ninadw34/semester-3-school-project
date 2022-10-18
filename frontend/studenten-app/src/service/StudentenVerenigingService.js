@@ -25,5 +25,17 @@ class StudentenVerenigingService {
             headers: headers,
         });
     }
+    GetStudentenVerenigingByID(id){
+        return axios.get(STUDENTENVERENIGING_API_BASE_URL+`/${id}`, {
+            mode: 'cors',
+            headers: headers,
+        });
+    }
+    UpdateStudentenVereniging(id, data){
+        return axios.put(STUDENTENVERENIGING_API_BASE_URL+`/update/${id}`, data, {
+            mode: 'cors',
+            headers: headers,
+        });
+    }
 }
 export default new StudentenVerenigingService();

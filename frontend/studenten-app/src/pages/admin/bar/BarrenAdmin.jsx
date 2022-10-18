@@ -34,6 +34,7 @@ class BarrenAdmin extends React.Component {
       <div className="ContentContainer">
         <h1>Barren Overzict</h1>
         <div className="middleContainter">
+        <Link to="/admin">Ga Terug</Link>
           <table>
             <tr>
               <th>Bar ID</th>

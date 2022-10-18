@@ -3,6 +3,7 @@ package com.studentenappbackend.StudentenAppBackend;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -44,10 +45,14 @@ public class BarController {
 	      barService.AddBar(bar);
 	   }
 	   
-	   @PutMapping("/updatebar/{id}")
-	   public Bar UpdateBar(@PathVariable("id") @RequestBody Bar bar) {
-		   barService.UpdateBar(bar);
-		   return bar;
-	   }
+	   @PutMapping("/update/{id}")
+	    public Bar UpdateBar
+	       (@PathVariable int id, @RequestBody Bar barInfo) {
+	        
+	        Bar bar = barService.GetByID(id);
+	        bar.SetNaam(barInfo.GetNaam());
+	        bar.SetLocatie(barInfo.GetLocatie());
+	        return barService.UpdateBar(bar);
+	    }
 
 }

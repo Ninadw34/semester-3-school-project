@@ -13,10 +13,13 @@ import UpdateBar from "./pages/admin/bar/UpdateBar";
 
 import StudentenVerenigingenAdmin from "./pages/admin/studentenvereniging/StudentenVerenigingenAdmin";
 import AddStudentenVereniging from "./pages/admin/studentenvereniging/AddStudentenVereniging";
+import UpdateStudentenVereniging from "./pages/admin/studentenvereniging/UpdateStudentenVereniging";
 
 import BerichtenAdmin from "./pages/admin/bericht/BerichtenAdmin";
 import AddBericht from "./pages/admin/bericht/AddBericht";
+import UpdateBericht from "./pages/admin/bericht/UpdateBericht";
 import './css/App.css';
+
 
 
 
@@ -37,10 +40,12 @@ function App() {
           <Route path="/addbar" element={<AddBar/>}></Route>
 
           <Route path="/adminstudentenvereniging" element={<StudentenVerenigingenAdmin/>}></Route>
+          <Route path="/updatestudentenvereniging/:id" element={<UpdateStudentenVereniging/>}></Route>
           <Route path="/addstudentenvereniging" element={<AddStudentenVereniging/>}></Route>
 
           <Route path="/adminbericht" element={<BerichtenAdmin/>}></Route>
           <Route path="/addbericht" element={<AddBericht/>}></Route>
+          <Route path="/updatebericht/:id" element={<UpdateBericht/>}></Route>
           
         </Routes>
       

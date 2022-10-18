@@ -34,12 +34,10 @@ class Bericht extends React.Component {
                         {/* <input id="like" type="checkbox" onClick={Like}/>
                         <span id="likeCounter">0</span> */}
                     </div>
-                    <div className="textBox">
-                       
-                            <h2>Studentenvereniging: {berichten.StudentenVerenigingID.VerenigingNaam}</h2>
-                            <p>{berichten.Text}</p>
-                            <h3>Facbar: {berichten.BarID.BarNaam}</h3>
-                            <p>Test bericht</p>                           
+                    <div className="textBox">         
+                        <h2>Studentenvereniging: {berichten.StudentenVerenigingID.VerenigingNaam}</h2>
+                        <p>{berichten.Text}</p>
+                        <h3>Facbar: {berichten.BarID.BarNaam}</h3>                          
                     </div>
                 </div>
             

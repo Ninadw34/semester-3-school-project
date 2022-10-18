@@ -1,65 +1,107 @@
-// import React, {useState} from "react";
-// import BerichtService from "../../../service/BerichtService";
-// import BarService from "../../../service/BarService";
-// import StudentenVerenigingService from "../../../service/StudentenVerenigingService";
+import React from "react";
+import BerichtService from "../../../service/BerichtService";
+import BarService from "../../../service/BarService";
+import StudentenVerenigingService from "../../../service/StudentenVerenigingService";
 
-// const AddBericht = () => {
-//     const [Text, setText] = useState('');
-//     const [AantalLikes, setAantalLikes] = useState('');
-//     const [BarID, setBar] = useState('');
-//     const [StudentenVerenigingID, setStudentenVereniging] = useState('');
+class AddBericht extends React.Component{
 
-//   const TextChange = (event) => {
-//     setText(event.target.value);
-//   };
+    constructor(props){
+        super(props);
+        this.state = {
+          Text: '',
+          AantalLikes: '',
+          Datum: '',
+          StudentenVerenigingID: '',
+          BarID: '',
+          bar:[],
+          studentenvereniging:[],
+        }
+        this.textChange = this.textChange.bind(this);
+        this.aantalLikesChange = this.aantalLikesChange.bind(this);
+        this.datumChange = this.datumChange.bind(this);
+        this.studentenverenigingChange = this.studentenverenigingChange.bind(this);
+        this.barChange = this.barChange.bind(this);
+        this.submitActionHandler = this.submitActionHandler.bind(this);
+      }
+      componentDidMount(){
+        StudentenVerenigingService.GetAllStudentenVerenigingen().then((response) => {
+          this.setState({studentenvereniging: response.data});
+        });
+        BarService.GetAllBarren().then((response) => {
+            this.setState({bar: response.data});
+        })
+      }
 
-//   const LikesChange = (event) => {
-//     setAantalLikes(event.target.value);
-//   };
-
-//   const BarChange = (event) => {
-//     setBar(event.target.value);
-//   };
-//   const StudentenVerenigingChange = (event) => {
-//     setStudentenVereniging(event.target.value);
-//   };
-
-
-//   const submitActionHandler = (event) => {
-//     event.preventDefault();
-//     BerichtService.AddBericht({
-//         Text: Text,
-//         AantalLikes: parseInt(AantalLikes),
-//         BarID: BarID,
-//         StudentenVerenigingID: StudentenVerenigingID
-//       })
-//       .then((response) => {
-//         alert("Bericht added!");
-//       });
-
-//   };
-
-//     return (
+      submitActionHandler = (event) => {
+        event.preventDefault();
+        let bericht = {StudentenVerenigingID: this.state.StudentenVerenigingID, BarID: this.state.BarID, Datum: this.state.Datum, Text: this.state.Text, AantalLikes: this.state.AantalLikes}
+        console.log(bericht)
+        BerichtService.AddBericht(bericht)
+          .then((response) => {
+            alert("Bericht added!");
+          });
     
-//     <div className="ContentContainer">
-//         <form onSubmit={submitActionHandler}>
-//             <select onChange={StudentenVerenigingChange}>
-//                 <option value={StudentenVerenigingID.StudentenVerenigingID}>{StudentenVerenigingID.VerenigingNaam}</option>
-//             </select>
-//             <select onChange={BarChange}>
-                
-//                 <option value={BarID.BarID}>{BarID.BarNaam}</option>
-                
-//             </select>
-//             <label>Text bericht</label>
-//             <input type="text-area" name="Text" value={Text} onChange={TextChange}/>
-//             <label>Aantal likes</label>
-//             <input type="text" name="barLocatie" value={AantalLikes} onChange={LikesChange}/>
-//             <input type="submit" value="Bar toevoegen"/>
-//         </form>
-//     </div>
+      };
+
+      textChange(event) {
+        this.setState({
+          Text: event.target.value
+        });
+      }
+      aantalLikesChange(event) {
+        this.setState({
+          AantalLikes: event.target.value
+        });
+      }
+      datumChange(event) {
+        this.setState({
+          Datum: event.target.value
+        });
+      }
+      studentenverenigingChange(event) {
+        this.setState({
+          StudentenVerenigingID: event.target.value
+        });
+      }
+      barChange(event){
+        this.setState({
+          BarID: event.target.value
+        });
+      }
+
+
+  
+render(){
+    return (
+    
+    <div className="ContentContainer">
+        <form onSubmit={this.submitActionHandler}>
+            <select onChange={this.studentenverenigingChange}>
+            {
+              this.state.studentenvereniging.map(
+                stv =>
+                <option value={stv.StudentenVerenigingID}>{stv.VerenigingNaam}</option>
+              )}
+            </select>
+            <select onChange={this.barChange}>
+            {
+              this.state.bar.map(
+                barren =>
+                <option value={barren.BarID}>{barren.BarNaam}</option>
+              )}
+            </select>
+            <label>Text bericht</label>
+            <textarea name="Text" value={this.state.Text} onChange={this.textChange}/>
+            <label>Aantal likes</label>
+            <input type="text" name="AantalLikes" value={this.state.AantalLikes} onChange={this.aantalLikesChange}/>
+            <label>Datum</label>
+            <input type="text" name="Datum" value={this.state.Datum} onChange={this.datumChange}/>
+            <input type="submit" value="Bericht toevoegen" />
+        </form>
+    </div>
       
-//     );
-//   };
+    );
+  };
+}
     
-//   export default AddBericht;
+  export default AddBericht;

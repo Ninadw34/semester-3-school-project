@@ -1,62 +1,57 @@
 import React from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import BarService from "../../../service/BarService";
 
-class UpdateBar extends React.Component {
+const UpdateBar = () => {
+  const {id} = useParams();
+  const [BarNaam, setBarNaam] = useState('');
+  const [Locatie, setLocatie] = useState('');
 
-    constructor(props){
-        super(props);
-        this.state = {
-          BarNaam: '',
-          Locatie: '',
-        }
-        this.barNaamChange = this.barNaamChange.bind(this);
-        this.locatieChange = this.locatieChange.bind(this);
-        this.submitActionHandler = this.submitActionHandler.bind(this);
+  useEffect(() =>{
+    async function fetchBar() {
+        const { data } = await BarService.GetBarByID(id);
+        setBarNaam(data.BarNaam);
+        setLocatie(data.Locatie);
     }
+    fetchBar()
 
-    componentDidMount(){
-    BarService.GetBarByID(this.props.match.params.id).then((response) => {
-        console.log(this.props.match.params.id);
-        let bar = response.data
-        this.setState({BarNaam: bar.BarNaam, 
-            Locatie: bar.Locatie});
+},[])
+
+const barNaamChange = (event) => {
+  setBarNaam(event.target.value);
+};
+
+const locatieChange = (event) => {
+  setLocatie(event.target.value);
+};
+
+
+const submitActionHandler = (event) => {
+  event.preventDefault();
+  BarService.UpdateBar(id, {
+      BarNaam: BarNaam,
+      Locatie: Locatie
+    })
+    .then((response) => {
+      alert("Bar "+ BarNaam +" updated!");
     });
-    }
-   barNaamChange = (event) => {
-    this.setBarNaam({BarnNaam: event.target.value});
-  };
 
-   locatieChange = (event) => {
-    this.setLocatie({Locatie: event.target.value});
-  };
-
-
-  submitActionHandler = (event) => {
-    event.preventDefault();
-    BarService.UpdateBar({
-        BarNaam: this.BarNaam,
-        Locatie: this.Locatie
-      })
-      .then((response) => {
-        alert("Bar "+ this.BarNaam +" updated!");
-      });
-
-  };
-render(){
+};
     return (
     
     <div className="ContentContainer">
-        <form onSubmit={this.submitActionHandler}>
+        <form onSubmit={submitActionHandler}>
             <label>Bar naam:</label>
-            <input type="text" name="barNaam" value={this.state.BarNaam} onChange={this.barNaamChange}/>
+            <input type="text" name="barNaam" value={BarNaam} onChange={barNaamChange}/>
             <label>Locatie:</label>
-            <input type="text" name="barLocatie" value={this.state.Locatie} onChange={this.locatieChange}/>
+            <input type="text" name="barLocatie" value={Locatie} onChange={locatieChange}/>
             <input type="submit" value="Bar Aanpassen"/>
         </form>
     </div>
       
     );
   }
-}
     
   export default UpdateBar;

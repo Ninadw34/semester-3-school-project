@@ -18,9 +18,9 @@ class BerichtenAdmin extends React.Component {
 
   DeleteBericht = (id) => {
     BerichtService.DeleteBericht(id).then((response) => {
-            alert("Bar Verwijderd (Refresh de pagina)");
+            alert("Bericht Verwijderd (Refresh de pagina)");
             this.setState({
-                bar: this.state.bericht.filter(bericht => bericht.id !== id)
+                bericht: this.state.bericht.filter(bericht => bericht.id !== id)
             });
         }
     );
@@ -29,8 +29,9 @@ class BerichtenAdmin extends React.Component {
   render(){
     return (
       <div className="ContentContainer">
-        <h1>Barren Overzict</h1>
+        <h1>Berichten Overzict</h1>
         <div className="middleContainter">
+        <Link to="/admin">Ga Terug</Link>
           <table>
             <tr>
               <th>Bericht ID</th>
@@ -48,7 +49,8 @@ class BerichtenAdmin extends React.Component {
                   <td>{berichten.BarID.BarNaam}</td>
                   <td>{berichten.Text}</td>
                   <td>{berichten.AantalLikes}</td>
-                  <td><button onClick={() => { this.DeleteBericht(berichten.ID) }}>Delete</button></td>
+                  <td><Link to={`/updatebericht/${berichten.BerichtID}`}>Edit</Link></td>
+                  <td><button onClick={() => { this.DeleteBericht(berichten.BerichtID) }}>Delete</button></td>
                 </tr>
               )
             }
