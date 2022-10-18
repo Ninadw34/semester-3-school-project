@@ -5,16 +5,19 @@ import BarService from "../../../service/BarService";
 class BarrenAdmin extends React.Component {
 
   constructor(props){
-    super(props);
+    super(props)
     this.state = {
       bar:[]
     }
   }
+
+
   componentDidMount(){
     BarService.GetAllBarren().then((response) => {
       this.setState({bar: response.data});
     });
   }
+  
 
   DeleteBar = (id) => {
     BarService.DeleteBar(id).then((response) => {
@@ -44,6 +47,7 @@ class BarrenAdmin extends React.Component {
                   <th>{barren.BarID}</th>
                   <th>{barren.BarNaam}</th>
                   <td>{barren.Locatie}</td>
+                  <td><Link to={`/updatebar/${barren.BarID}`}>Edit</Link></td>
                   <td><button onClick={() => { this.DeleteBar(barren.BarID) }}>Delete</button></td>
                 </tr>
               )

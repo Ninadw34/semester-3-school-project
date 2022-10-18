@@ -1,4 +1,6 @@
 package entity;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -32,11 +34,15 @@ public class Bericht {
 	@Column(name = "text")
 	public String Text;
 	
-	public Bericht(StudentenVereniging stvid, Bar barid, int likes, String text) {
+	@Column(name = "date")
+	public Date Datum;
+	
+	public Bericht(StudentenVereniging stvid, Bar barid, int likes, String text, Date datum) {
 		this.StudentenVerenigingID = stvid;
 		this.BarID = barid;
 		this.AantalLikes = likes;
 		this.Text = text;
+		this.Datum = datum;
 	}
 	
 	public Bericht(int berichtid) {
@@ -84,5 +90,11 @@ public class Bericht {
 	
 	public void SetText(String text) {
 		this.Text = text;
+	}
+	public Date getDatum() {
+		return Datum;
+	}
+	public void setDatum(Date datum) {
+		this.Datum = datum;
 	}
 }

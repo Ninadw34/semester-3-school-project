@@ -1,6 +1,6 @@
 import React from "react";
 import './css/Bericht.css';
-import Banner from './css/bar.jpeg';
+import Banner from './css/assets/bar.jpeg';
 import BerichtService from "./service/BerichtService";
 
 class Bericht extends React.Component {
@@ -26,7 +26,7 @@ class Bericht extends React.Component {
                 <>
                 <React.Fragment key={berichten.BerichtID}>
                 <div  className="BerichtenBox">
-                
+                  <p>{berichten.Datum.substring(0, 10)}</p>
                 <div className="bericht">
                     <img src={Banner} alt="Studentenbar"/>
                     <div className="borderUnderImage"></div>
@@ -39,7 +39,7 @@ class Bericht extends React.Component {
                             <h2>Studentenvereniging: {berichten.StudentenVerenigingID.VerenigingNaam}</h2>
                             <p>{berichten.Text}</p>
                             <h3>Facbar: {berichten.BarID.BarNaam}</h3>
-                        
+                            <p>Test bericht</p>                           
                     </div>
                 </div>
             

@@ -28,5 +28,17 @@ class BarService {
             headers: headers,
         });
     }
+    GetBarByID(id){
+        return axios.get(BAR_API_BASE_URL+`/${id}`, {
+            mode: 'cors',
+            headers: headers,
+        });
+    }
+    UpdateBar(id, data){
+        return axios.put(BAR_API_BASE_URL+`/updatebar/${id}`, data, {
+            mode: 'cors',
+            headers: headers,
+        });
+    }
 }
 export default new BarService();

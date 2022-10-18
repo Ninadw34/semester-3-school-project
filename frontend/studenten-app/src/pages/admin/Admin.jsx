@@ -1,11 +1,12 @@
 import React from "react";
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import '../../css/Admin.css';
 
 const Admin = () => {
     return (
     
-    <div className="ContentContainer">
-        <div className="middleContainter">
+    <div className="adminContainer">
+        <div className="middleContent">
             <ul>
                 <Link to='/adminbar'><li>Barren</li></Link>
                 <Link to='/adminbericht'><li>Berichten</li></Link>

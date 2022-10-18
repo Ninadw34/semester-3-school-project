@@ -43,5 +43,11 @@ public class BarController {
 	   public void AddBar(@RequestBody Bar bar) {
 	      barService.AddBar(bar);
 	   }
+	   
+	   @PutMapping("/updatebar/{id}")
+	   public Bar UpdateBar(@PathVariable("id") @RequestBody Bar bar) {
+		   barService.UpdateBar(bar);
+		   return bar;
+	   }
 
 }

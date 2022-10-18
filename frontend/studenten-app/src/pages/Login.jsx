@@ -11,6 +11,7 @@ const Login = () => {
             <li><input type="text" name="gebruikersnaamInput"/></li>
             <li><label>Wachtwoord:</label></li>
             <li><input type="password" name="wachtwoordInput"/></li>
+            <li><input type="submit" value="Inloggen"/></li>
           </ul>
         </div>
       </div>

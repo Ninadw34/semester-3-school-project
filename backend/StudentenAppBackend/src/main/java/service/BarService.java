@@ -32,6 +32,10 @@ public class BarService {
 	public void DeleteBar(int id) {
 		barRep.deleteById(id);
 	}
+	
+	public void UpdateBar(Bar bar) {
+		barRep.save(bar);
+	}
 	public Bar GetByID(int id) {
 		return barRep.findById(id).get();
 	}

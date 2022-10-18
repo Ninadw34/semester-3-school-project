@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    command: npm start
+    volumes: 
+      - '/app/node_modules'
+    environment:
+      - WATCHPACK_POLLING=true

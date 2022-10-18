@@ -3,7 +3,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    background-image: url("party.jpg");
+    background-image: url("./assets/party.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: luminosity;
