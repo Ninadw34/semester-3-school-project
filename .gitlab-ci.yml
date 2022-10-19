@@ -1,21 +1,12 @@
-stages:
-  - build
-  - test
+variables:
+  IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  DOCKER_TLS_CERTDIR: "/certs"
 
-build:
-  stage: build
+build-push-docker-image-job:
   image: semester-3-project-frontend
-  script: 
-    - echo "Start building App"
-    - npm install
-    - npm build
-    - echo "Build successfully!"
-
-test:
-  stage: test
-  image: semester-3-project-frontend
+  services:
+    - docker:dind
   script:
-    - echo "Testing App"
-    - npm install
-    - CI=true npm test
-    - echo "Test successfully!"
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
