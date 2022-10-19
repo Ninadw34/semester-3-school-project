@@ -1,8 +1,13 @@
 services:
   frontend:
-    build: ./frontend
+    build:
+      context: "./frontend/studenten-app"
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    volumes:
-      - "./frontend:/app"
-      - "/app/node_modules"
+  backend:
+    build:
+      context: "./backend/StudentenAppBackend"
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"

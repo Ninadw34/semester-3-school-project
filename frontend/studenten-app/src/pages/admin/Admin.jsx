@@ -10,7 +10,7 @@ const Admin = () => {
             <ul>
                 <Link to='/adminbar'><li>Barren</li></Link>
                 <Link to='/adminbericht'><li>Berichten</li></Link>
-                <Link><li>Studenten</li></Link>
+                <Link to='./adminstudent'><li>Studenten</li></Link>
                 <Link to="/adminstudentenvereniging"><li>StudentenVerenigingen</li></Link>
             </ul>
         </div>

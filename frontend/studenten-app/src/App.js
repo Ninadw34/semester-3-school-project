@@ -18,10 +18,10 @@ import UpdateStudentenVereniging from "./pages/admin/studentenvereniging/UpdateS
 import BerichtenAdmin from "./pages/admin/bericht/BerichtenAdmin";
 import AddBericht from "./pages/admin/bericht/AddBericht";
 import UpdateBericht from "./pages/admin/bericht/UpdateBericht";
+
+import StudentenAdmin from "./pages/admin/student/StudentenAdmin";
+import Registreren from "./pages/Registreren";
 import './css/App.css';
-
-
-
 
 function App() {
   return (
@@ -46,7 +46,9 @@ function App() {
           <Route path="/adminbericht" element={<BerichtenAdmin/>}></Route>
           <Route path="/addbericht" element={<AddBericht/>}></Route>
           <Route path="/updatebericht/:id" element={<UpdateBericht/>}></Route>
-          
+
+          <Route path="/adminstudent" element={<StudentenAdmin/>}></Route>
+          <Route path="/registreren" element={<Registreren/>}></Route>
         </Routes>
       
     </>
