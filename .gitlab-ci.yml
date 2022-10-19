@@ -4,7 +4,7 @@ stages:
 
 build:
   stage: build
-  image: frontend-app
+  image: semester-3-project-frontend
   script: 
     - echo "Start building App"
     - npm install
@@ -13,7 +13,7 @@ build:
 
 test:
   stage: test
-  image: frontend-app
+  image: semester-3-project-frontend
   script:
     - echo "Testing App"
     - npm install
