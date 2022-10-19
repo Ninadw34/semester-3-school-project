@@ -3,7 +3,7 @@ variables:
   DOCKER_TLS_CERTDIR: "/certs"
 
 build-push-docker-image-job:
-  image: semester-3-project-frontend
+  image: node:13.12.0-alpine
   services:
     - docker:dind
   script:
