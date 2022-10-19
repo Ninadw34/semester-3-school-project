@@ -1,11 +1,21 @@
-image: docker
 stages:
   - build
+  - test
 
-build_job:
+build:
   stage: build
+  image: frontend-app
+  script: 
+    - echo "Start building App"
+    - npm install
+    - npm build
+    - echo "Build successfully!"
+
+test:
+  stage: test
+  image: frontend-app
   script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $CONTAINER_TEST_IMAGE
-    - docker push $CONTAINER_TEST_IMAGE
-    - docker logout
+    - echo "Testing App"
+    - npm install
+    - CI=true npm test
+    - echo "Test successfully!"
