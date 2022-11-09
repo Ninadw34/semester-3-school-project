@@ -44,7 +44,8 @@ class StudentenAdmin extends React.Component {
                 studenten =>
                 <tr key={studenten.ID}>
                   <th>{studenten.ID}</th>
-                  <th>{studenten.GebruikersNaam}</th>
+                  <th>{studenten.Naam}</th>
+                  <th>{studenten.Email}</th>
                   <td>{studenten.StudentenVerenigingID.VerenigingNaam}</td>
                   <td><Link to={`/updatestudent/${studenten.ID}`}>Edit</Link></td>
                   <td><button onClick={() => { this.DeleteStudent(studenten.ID) }}>Delete</button></td>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../css/Main.css";
 
 const Login = () => {
@@ -12,6 +13,7 @@ const Login = () => {
             <li><label>Wachtwoord:</label></li>
             <li><input type="password" name="wachtwoordInput"/></li>
             <li><input type="submit" value="Inloggen"/></li>
+            <li><Link to="/registreren">Account aanmaken</Link></li>
           </ul>
         </div>
       </div>

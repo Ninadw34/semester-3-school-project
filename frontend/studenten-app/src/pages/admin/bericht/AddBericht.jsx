@@ -77,6 +77,7 @@ render(){
     <div className="ContentContainer">
         <form onSubmit={this.submitActionHandler}>
             <select onChange={this.studentenverenigingChange}>
+              <option>--- Kies studentenvereniging ---</option>
             {
               this.state.studentenvereniging.map(
                 stv =>
@@ -84,6 +85,7 @@ render(){
               )}
             </select>
             <select onChange={this.barChange}>
+              <option>--- Kies studentenvereniging ---</option>
             {
               this.state.bar.map(
                 barren =>

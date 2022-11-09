@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import BarService from "../../../service/BarService";
+import '../../../css/Admin.css';
 
 class BarrenAdmin extends React.Component {
 
@@ -31,32 +32,39 @@ class BarrenAdmin extends React.Component {
   
   render(){
     return (
-      <div className="ContentContainer">
+      <div className="adminContainer">
         <h1>Barren Overzict</h1>
-        <div className="middleContainter">
-        <Link to="/admin">Ga Terug</Link>
+        <div className="adminButtons">
+          <Link className="link" to="/admin">Ga Terug</Link>
+          <Link className="link" to="/addbar">Bar aanmaken</Link>
+        </div>
+        
+        <div className="adminOverzicht">
           <table>
             <tr>
               <th>Bar ID</th>
               <th>Bar naam</th>
               <th>Locatie</th>
+              <th>Edit bar</th>
+              <th>Delete bar</th>
             </tr>
             {
               this.state.bar.map(
                 barren =>
                 <tr key={barren.BarID}>
                   <th>{barren.BarID}</th>
-                  <th>{barren.BarNaam}</th>
+                  <td>{barren.BarNaam}</td>
                   <td>{barren.Locatie}</td>
-                  <td><Link to={`/updatebar/${barren.BarID}`}>Edit</Link></td>
-                  <td><button onClick={() => { this.DeleteBar(barren.BarID) }}>Delete</button></td>
+                  <td><Link className="editButton" to={`/updatebar/${barren.BarID}`}>Edit</Link></td>
+                  <td><button className="deleteButton" onClick={() => { this.DeleteBar(barren.BarID) }}>Delete</button></td>
                 </tr>
               )
             }
             
           </table>
-          <Link to="/addbar">Bar aanmaken</Link>
+
         </div>
+
       </div>
     );
   };

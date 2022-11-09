@@ -6,13 +6,15 @@ const Admin = () => {
     return (
     
     <div className="adminContainer">
-        <div className="middleContent">
-            <ul>
-                <Link to='/adminbar'><li>Barren</li></Link>
-                <Link to='/adminbericht'><li>Berichten</li></Link>
-                <Link to='./adminstudent'><li>Studenten</li></Link>
-                <Link to="/adminstudentenvereniging"><li>StudentenVerenigingen</li></Link>
-            </ul>
+        <div className="dashboardAdmin">
+            <div className="linksDashboard">
+                <ul>
+                    <Link className="link" to='/adminbar'><li>Barren</li></Link>
+                    <Link className="link" to='/adminbericht'><li>Berichten</li></Link>
+                    <Link className="link" to='/adminstudent'><li>Studenten</li></Link>
+                    <Link className="link" to="/adminstudentenvereniging"><li>StudentenVerenigingen</li></Link>
+                </ul>
+            </div>
         </div>
     </div>
       
