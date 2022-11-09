@@ -15,7 +15,7 @@ public class StudentenVereniging {
 	@Column(name = "idstudentenvereniging")
 	public int StudentenVerenigingID;
 	
-	@Column(name = "verenigingnaam")
+	@Column(name = "verenigingnaam", unique = true)
 	public String VerenigingNaam;
 	
 	@Column(name = "leden")

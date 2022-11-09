@@ -20,10 +20,10 @@ public class Student {
 	@OneToOne(targetEntity=StudentenVereniging.class, fetch=FetchType.EAGER)
 	public StudentenVereniging StudentenVerenigingID;
 	
-	@Column(name = "naam")
+	@Column(name = "naam", unique = true)
 	public String Naam;
 	
-	@Column(name = "email")
+	@Column(name = "email", unique = true)
 	public String Email;
 	
 	@Column(name = "password")

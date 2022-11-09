@@ -15,12 +15,17 @@ public class Bar {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public int BarID;
 	
-	@Column(name = "barnaam")
+	@Column(name = "barnaam", unique = true)
 	public String BarNaam;
 	
 	@Column(name = "locatie")
 	public String Locatie;
 	
+	public Bar(int barid, String barnaam, String locatie) {
+		this.BarID = barid;
+		this.BarNaam = barnaam;
+		this.Locatie = locatie;
+	}
 	public Bar(String barnaam, String locatie) {
 		this.BarNaam = barnaam;
 		this.Locatie = locatie;

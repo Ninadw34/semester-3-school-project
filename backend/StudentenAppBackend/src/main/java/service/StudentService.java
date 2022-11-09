@@ -23,11 +23,11 @@ public class StudentService {
 	      return studenten;
 	}
 	
-	public void AddBericht(Student student) {
+	public void AddStudent(Student student) {
 		studentRep.save(student);
 	}
 	
-	public void DeleteBericht(int id) {
+	public void DeleteStudent(int id) {
 		studentRep.deleteById(id);
 	}
 	public Student GetByID(int id) {

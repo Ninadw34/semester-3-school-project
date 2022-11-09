@@ -34,11 +34,11 @@ public class StudentController {
 
 	   @DeleteMapping("/delete/{id}")
 	   public void DeleteStudent(@PathVariable("id") int id) {
-		   studentService.DeleteBericht(id);
+		   studentService.DeleteStudent(id);
 	   }
 
-	   @PostMapping("/addbar")
+	   @PostMapping("/addstudent")
 	   public void AddStudent(@RequestBody Student student) {
-		   studentService.AddBericht(student);
+		   studentService.AddStudent(student);
 	   }
 }
