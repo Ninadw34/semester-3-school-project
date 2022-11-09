@@ -1,13 +1,9 @@
-image: docker
-stages:
-  - build
-
-variables: $CI_REGISTRY_IMAGE:latest
-
-build_job:
+build-job:
   stage: build
   script:
-    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build -t $CONTAINER_TEST_IMAGE
-    - docker push $CONTAINER_TEST_IMAGE
-    - docker logout
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+
+test-job1:
+  stage: test
+  script:
+    - echo "This job tests something"
