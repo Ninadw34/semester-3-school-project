@@ -1,0 +1,19 @@
+name: Backend applicatie
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build/push docker image
+        working-directory: ./backend/StudentenAppBackend
+        run: |
+          echo "${{ secrets.dockerPW }}" | docker login -u "ninadw34" --password-stdin
+          docker image build -t backend-app-springboot .
+          docker push backend-app-springboot
