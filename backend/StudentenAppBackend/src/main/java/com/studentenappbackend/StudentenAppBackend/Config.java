@@ -10,7 +10,7 @@ import service.StudentService;
 import service.StudentenVerenigingService;
 
 @Configuration
-public class config {
+public class Config {
 
 	@Bean
 	public BarService barService() {
