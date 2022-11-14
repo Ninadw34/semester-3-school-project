@@ -12,6 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build/push docker image
+        working-directory: ./frontend
         run: |
           echo "${{ secrets.dockerPW }}" | docker login -u "ninadw34" --password-stdin
           docker image build -t ninadw34/frontend-app-react .
