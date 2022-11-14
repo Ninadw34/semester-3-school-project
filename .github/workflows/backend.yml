@@ -15,5 +15,5 @@ jobs:
         working-directory: ./backend/StudentenAppBackend
         run: |
           echo "${{ secrets.dockerPW }}" | docker login -u "ninadw34" --password-stdin
-          docker image build -t backend-app-springboot .
-          docker push backend-app-springboot
+          docker image build -t ninadw34/backend-app-springboot .
+          docker push ninadw34/backend-app-springboot
