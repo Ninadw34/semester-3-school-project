@@ -1,0 +1,18 @@
+name: Frontend applicatie
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+    
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Build/push docker image
+        run: |
+          echo "${{ secrets.dockerPW }}" | docker login -u "ninadw34" --passwordstdin
+          docker image build -t ninadw34/frontend-app-react .
+          docker push ninadw34/frontend-app-react
