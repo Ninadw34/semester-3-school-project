@@ -29,6 +29,10 @@ const locatieChange = (event) => {
 
 
 const submitActionHandler = (event) => {
+  if(!BarNaam || !Locatie){
+    alert("Error, vul alle velden in!");
+  }
+  else{
   event.preventDefault();
   BarService.UpdateBar(id, {
       BarNaam: BarNaam,
@@ -37,18 +41,32 @@ const submitActionHandler = (event) => {
     .then((response) => {
       alert("Bar "+ BarNaam +" updated!");
     });
-
+  }
 };
     return (
     
-    <div className="ContentContainer">
-        <form onSubmit={submitActionHandler}>
-            <label>Bar naam:</label>
-            <input type="text" name="barNaam" value={BarNaam} onChange={barNaamChange}/>
-            <label>Locatie:</label>
-            <input type="text" name="barLocatie" value={Locatie} onChange={locatieChange}/>
-            <input type="submit" value="Bar Aanpassen"/>
-        </form>
+      <div className="adminContainer">
+        <div className="adminInputfields">
+          <form onSubmit={submitActionHandler}>
+            <ul>
+              <li>
+                <label>Bar naam:</label>
+              </li>
+              <li>
+                <input type="text" name="barNaam" value={BarNaam} onChange={barNaamChange}/>
+              </li>
+              <li>
+                <label>Locatie:</label>
+              </li>
+              <li>
+                <input type="text" name="barLocatie" value={Locatie} onChange={locatieChange}/>
+              </li>
+              <li>
+                <input type="submit" value="Bar Aanpassen"/>
+              </li>
+            </ul>
+          </form>
+      </div>
     </div>
       
     );

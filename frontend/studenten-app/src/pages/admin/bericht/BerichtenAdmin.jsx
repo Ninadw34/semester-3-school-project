@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import BerichtService from "../../../service/BerichtService";
+import '../../../css/Admin.css';
 
 class BerichtenAdmin extends React.Component {
 
@@ -28,10 +29,14 @@ class BerichtenAdmin extends React.Component {
   
   render(){
     return (
-      <div className="ContentContainer">
+      <div className="adminContainer">
         <h1>Berichten Overzict</h1>
-        <div className="middleContainter">
-        <Link to="/admin">Ga Terug</Link>
+        <div className="adminButtons">
+          <Link className="link" to="/admin">Ga Terug</Link>
+          <Link className="link" to="/addbericht">Bericht aanmaken</Link>
+        </div>
+        
+        <div className="adminOverzicht">
           <table>
             <tr>
               <th>Bericht ID</th>
@@ -39,6 +44,8 @@ class BerichtenAdmin extends React.Component {
               <th>Bar naam</th>
               <th>Text</th>
               <th>Aantal likes</th>
+              <th>Edit bericht</th>
+              <th>Delete bericht</th>
             </tr>
             {
               this.state.bericht.map(
@@ -49,14 +56,13 @@ class BerichtenAdmin extends React.Component {
                   <td>{berichten.BarID.BarNaam}</td>
                   <td>{berichten.Text}</td>
                   <td>{berichten.AantalLikes}</td>
-                  <td><Link to={`/updatebericht/${berichten.BerichtID}`}>Edit</Link></td>
-                  <td><button onClick={() => { this.DeleteBericht(berichten.BerichtID) }}>Delete</button></td>
+                  <td><Link className="editButton" to={`/updatebericht/${berichten.BerichtID}`}>Edit</Link></td>
+                  <td><button className="deleteButton" onClick={() => { this.DeleteBericht(berichten.BerichtID) }}>Delete</button></td>
                 </tr>
               )
             }
             
           </table>
-          <Link to="/addbericht">Bericht aanmaken</Link>
         </div>
       </div>
     );

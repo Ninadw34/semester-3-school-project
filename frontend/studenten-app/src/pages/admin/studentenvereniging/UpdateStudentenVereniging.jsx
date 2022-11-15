@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import StudentenVerenigingService from "../../../service/StudentenVerenigingService";
+import {Link} from "react-router-dom";
 
 const UpdateStudentenVereniging = () => {
   const {id} = useParams();
@@ -29,6 +30,10 @@ const studentenVerenigingNaamChange = (event) => {
 
 
   const submitActionHandler = (event) => {
+    if(!VerenigingNaam || !AantalLeden){
+      alert("Error, vul alle velden in!");
+    }
+    else{
     event.preventDefault();
     StudentenVerenigingService.UpdateStudentenVereniging(id, {
       VerenigingNaam: VerenigingNaam,
@@ -37,18 +42,32 @@ const studentenVerenigingNaamChange = (event) => {
       .then((response) => {
         alert("Studentenvereniging "+ VerenigingNaam +" updated!");
       });
-
+    }
   };
     return (
     
-    <div className="ContentContainer">
+      <div className="adminContainer">
+      <div className="adminInputfields">
         <form onSubmit={submitActionHandler}>
-            <label>Studentenvereniging naam:</label>
-            <input type="text" name="barNaam" value={VerenigingNaam} onChange={studentenVerenigingNaamChange}/>
-            <label>Aantal leden:</label>
-            <input type="text" name="barLocatie" value={AantalLeden} onChange={aantalLedenChange}/>
-            <input type="submit" value="Studentenvereniging Aanpassen"/>
+          <ul>
+            <li>
+              <label>Studentenvereniging naam:</label>
+            </li>
+            <li>
+              <input type="text" name="studentenVerenigingNaam" value={VerenigingNaam} onChange={studentenVerenigingNaamChange}/>
+            </li>
+            <li>
+              <label>Aantal leden:</label>
+            </li>
+            <li>
+              <input type="text" name="aantalLeden" value={AantalLeden} onChange={aantalLedenChange}/>
+            </li>
+            <li>
+              <input type="submit" value="Studentenvereniging aanpassen"/><Link className="deleteButton" to="/adminstudentenvereniging">Cancel</Link>
+            </li>
+          </ul>
         </form>
+      </div>
     </div>
       
     );

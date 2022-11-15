@@ -28,16 +28,21 @@ class StudentenAdmin extends React.Component {
   
   render(){
     return (
-      <div className="ContentContainer">
-        <h1>Berichten Overzict</h1>
-        <div className="middleContainter">
-        <Link to="/admin">Ga Terug</Link>
+      <div className="adminContainer">
+        <h1>Studenten Overzict</h1>
+        <div className="adminButtons">
+          <Link className="link" to="/admin">Ga Terug</Link>
+        </div>
+        
+        <div className="adminOverzicht">
           <table>
             <tr>
               <th>Student ID</th>
               <th>Gebruikersnaam</th>
               <th>Email</th>
               <th>Studentenvereniging</th>
+              <th>Edit student</th>
+              <th>Delete student</th>
             </tr>
             {
               this.state.student.map(
@@ -47,8 +52,8 @@ class StudentenAdmin extends React.Component {
                   <th>{studenten.Naam}</th>
                   <th>{studenten.Email}</th>
                   <td>{studenten.StudentenVerenigingID.VerenigingNaam}</td>
-                  <td><Link to={`/updatestudent/${studenten.ID}`}>Edit</Link></td>
-                  <td><button onClick={() => { this.DeleteStudent(studenten.ID) }}>Delete</button></td>
+                  <td><Link className="editButton" to={`/updatestudent/${studenten.ID}`}>Edit</Link></td>
+                  <td><button className="deleteButton" onClick={() => { this.DeleteStudent(studenten.ID) }}>Delete</button></td>
                 </tr>
               )
             }

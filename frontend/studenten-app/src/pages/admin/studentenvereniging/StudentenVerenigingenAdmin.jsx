@@ -28,16 +28,21 @@ class StudentenVerenigingenAdmin extends React.Component {
 
   render(){
     return (
-      <div className="ContentContainer">
-        <h1>Studentenverenigingen page</h1>
-        <Link to="/admin">Ga Terug</Link>
-        <div className="middleContainter">
-          <h2>Alle Studenten Verenigingen</h2>
+      <div className="adminContainer">
+        <h1>Studentenverenigingen Overzict</h1>
+        <div className="adminButtons">
+          <Link className="link" to="/admin">Ga Terug</Link>
+          <Link className="link" to="/addstudentenvereniging">Studentenvereniging aanmaken</Link>
+        </div>
+        
+        <div className="adminOverzicht">
           <table>
           <tr>
               <th>Studentenvereniging ID</th>
               <th>Studentenvereniging naam</th>
               <th>Aantal leden</th>
+              <th>Edit studentenvereniging</th>
+              <th>Delete studentenvereniging</th>
             </tr>
             {
               this.state.studentenvereniging.map(
@@ -46,14 +51,14 @@ class StudentenVerenigingenAdmin extends React.Component {
                   <th>{stv.StudentenVerenigingID}</th>
                   <th>{stv.VerenigingNaam}</th>
                   <td>{stv.AantalLeden}</td>
-                  <td><Link to={`/updatestudentenvereniging/${stv.StudentenVerenigingID}`}>Edit</Link></td>
-                  <td><button onClick={() => { this.DeleteStudentenVereniging(stv.StudentenVerenigingID) }}>Delete</button></td>
+                  <td><Link className="editButton" to={`/updatestudentenvereniging/${stv.StudentenVerenigingID}`}>Edit</Link></td>
+                  <td><button className="deleteButton" onClick={() => { this.DeleteStudentenVereniging(stv.StudentenVerenigingID) }}>Delete</button></td>
                 </tr>
               )
             }
             
           </table>
-          <Link to="/addstudentenvereniging">Studentenvereniging aanmaken</Link>
+          
         </div>
       </div>
     );

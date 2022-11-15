@@ -33,6 +33,10 @@ const textChange = (event) => {
 
 
   const submitActionHandler = (event) => {
+    if(!this.Datum || !this.AantalLikes || !this.Text){
+      alert("Error, vul alle velden in!");
+    }
+    else{
     event.preventDefault();
     BerichtService.UpdateBericht(id, {
       Text: Text,
@@ -42,20 +46,37 @@ const textChange = (event) => {
       .then((response) => {
         alert("Bericht updated!");
       });
-
+    }
   };
     return (
     
-    <div className="ContentContainer">
-        <form onSubmit={submitActionHandler}>
-            <label>Text bericht</label>
-            <textarea name="Text" value={Text} onChange={textChange}/>
-            <label>Aantal likes</label>
-            <input type="text" name="AantalLikes" value={AantalLikes} onChange={aantalLikesChange}/>
-            <label>Datum</label>
-            <input type="text" name="Datum" value={Datum} onChange={datumChange}/>
-            <input type="submit" value="Bericht aanpassen" />
-        </form>
+      <div className="adminContainer">
+        <div className="adminInputfields">
+          <form onSubmit={submitActionHandler}>
+            <ul>
+              <li>
+                <label>Text bericht</label></li>
+              <li>
+                <textarea name="Text" value={Text} onChange={textChange}/>
+              </li>
+              <li>
+                <label>Aantal likes</label>
+              </li>
+              <li>
+                <input type="text" name="AantalLikes" value={AantalLikes} onChange={aantalLikesChange}/>
+              </li>
+              <li>
+                <label>Datum</label>
+              </li>
+              <li>
+                <input type="text" name="Datum" value={Datum} onChange={datumChange}/>
+              </li>
+              <li>
+                <input type="submit" value="Bericht aanpassen" />
+              </li>
+            </ul>   
+          </form>
+        </div>
     </div>
       
     );

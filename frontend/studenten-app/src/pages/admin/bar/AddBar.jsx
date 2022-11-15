@@ -6,7 +6,6 @@ const AddBar = () => {
     const [BarNaam, setBarNaam] = useState('');
     const [Locatie, setLocatie] = useState('');
 
-
   const barNaamChange = (event) => {
     setBarNaam(event.target.value);
   };
@@ -35,16 +34,28 @@ const AddBar = () => {
     return (
     
       <div className="adminContainer">
-        <div className="dashboardAdmin">
+        <div className="adminInputfields">
           <form onSubmit={submitActionHandler}>
-              <label>Bar naam:</label>
-              <input type="text" name="barNaam" value={BarNaam} onChange={barNaamChange}/>
-              <label>Locatie:</label>
-              <input type="text" name="barLocatie" value={Locatie} onChange={locatieChange}/>
-              <input type="submit" value="Bar toevoegen"/>
+            <ul>
+              <li>
+                <label>Bar naam:</label>
+              </li>
+              <li>
+                <input type="text" name="barNaam" value={BarNaam} onChange={barNaamChange}/>
+              </li>
+              <li>
+                <label>Locatie:</label>
+              </li>
+              <li>
+                <input type="text" name="barLocatie" value={Locatie} onChange={locatieChange}/>
+              </li>
+              <li>
+                <input type="submit" value="Bar Aanpassen"/>
+              </li>
+            </ul>
           </form>
-        </div>
       </div>
+    </div>
     );
   };
     
