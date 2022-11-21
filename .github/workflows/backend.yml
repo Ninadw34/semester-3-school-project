@@ -23,7 +23,8 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Run tests with Maven
-        run: mvn -B test --file backend/StudentenAppBackend/pom.xml
+      - run: mvn -B package --file backend/StudentenAppBackend/pom.xml -DskipTests
+      - run: mkdir staging && cp target/*jar-with-dependencies.jar staging
         
   build:
     runs-on: ubuntu-latest
