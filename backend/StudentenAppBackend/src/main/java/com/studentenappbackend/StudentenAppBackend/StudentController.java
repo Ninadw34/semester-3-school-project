@@ -23,22 +23,22 @@ public class StudentController {
 	StudentService studentService;
 
 	   @GetMapping("")
-	   public List<Student> GetAllStudenten(){
-	      return studentService.GetAll();
+	   public List<Student> getAllStudenten(){
+	      return studentService.getAll();
 	   }
 
 	   @GetMapping("/{id}")
-	   public Student GetByID(@PathVariable("id") int id) {
-	      return studentService.GetByID(id);
+	   public Student getByID(@PathVariable("id") int id) {
+	      return studentService.getByID(id);
 	   }
 
 	   @DeleteMapping("/delete/{id}")
-	   public void DeleteStudent(@PathVariable("id") int id) {
-		   studentService.DeleteStudent(id);
+	   public void deleteStudent(@PathVariable("id") int id) {
+		   studentService.deleteStudent(id);
 	   }
 
 	   @PostMapping("/addstudent")
-	   public void AddStudent(@RequestBody Student student) {
-		   studentService.AddStudent(student);
+	   public void addStudent(@RequestBody Student student) {
+		   studentService.addStudent(student);
 	   }
 }

@@ -3,7 +3,6 @@ package com.studentenappbackend.StudentenAppBackend;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,33 +25,33 @@ public class BarController {
 	   BarService barService;
 
 	   @GetMapping("")
-	   public List<Bar> GetAllBarren(){
-	      return barService.GetAll();
+	   public List<Bar> getAllBarren(){
+	      return barService.getAll();
 	   }
 
 	   @GetMapping("/{id}")
-	   public Bar GetByID(@PathVariable("id") int id) {
-	      return barService.GetByID(id);
+	   public Bar getByID(@PathVariable("id") int id) {
+	      return barService.getByID(id);
 	   }
 
 	   @DeleteMapping("/delete/{id}")
-	   public void DeleteBar(@PathVariable("id") int id) {
-	      barService.DeleteBar(id);
+	   public void deleteBar(@PathVariable("id") int id) {
+	      barService.deleteBar(id);
 	   }
 
 	   @PostMapping("/addbar")
-	   public void AddBar(@RequestBody Bar bar) {
-	      barService.AddBar(bar);
+	   public void addBar(@RequestBody Bar bar) {
+	      barService.addBar(bar);
 	   }
 	   
 	   @PutMapping("/update/{id}")
-	    public Bar UpdateBar
+	    public Bar updateBar
 	       (@PathVariable int id, @RequestBody Bar barInfo) {
 	        
-	        Bar bar = barService.GetByID(id);
+	        Bar bar = barService.getByID(id);
 	        bar.SetNaam(barInfo.GetNaam());
 	        bar.SetLocatie(barInfo.GetLocatie());
-	        return barService.UpdateBar(bar);
+	        return barService.updateBar(bar);
 	    }
 
 }

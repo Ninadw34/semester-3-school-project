@@ -19,24 +19,25 @@ public class BarService {
 	BarRepository barRep;
 
 
-	public List<Bar> GetAll(){
+	public List<Bar> getAll(){
 	      List<Bar> barren = new ArrayList<Bar>();
 	      barRep.findAll().forEach(bar -> barren.add(bar));
 	      return barren;
 	}
 	
-	public void AddBar(Bar bar) {
+	public void addBar(Bar bar) {
 		barRep.save(bar);
 	}
 	
-	public void DeleteBar(int id) {
+	public void deleteBar(int id) {
 		barRep.deleteById(id);
 	}
 	
-	public Bar UpdateBar(Bar bar) {
+	public Bar updateBar(Bar bar) {
 		return barRep.save(bar);
 	}
-	public Bar GetByID(int id) {
+	public Bar getByID(int id) {
 		return barRep.findById(id).get();
 	}
+	
 }

@@ -29,11 +29,23 @@ public class Student {
 	@Column(name = "password")
 	protected String Password;
 	
-	public Student(String naam, String email, String password, StudentenVereniging stvid) {
+	@Column(name = "role")
+	public String Role;
+	
+	public Student(String naam, String email, String password, StudentenVereniging stvid, String role) {
 		this.Naam = naam;
 		this.Email = email;
 		this.Password = password;
-		this.StudentenVerenigingID = stvid;		
+		this.StudentenVerenigingID = stvid;
+		this.Role = role;
+	}
+	public Student(int id, String naam, String email, String password, StudentenVereniging stvid, String role) {
+		this.ID = id;
+		this.Naam = naam;
+		this.Email = email;
+		this.Password = password;
+		this.StudentenVerenigingID = stvid;
+		this.Role = role;
 	}
 	public Student(int id) {
 		this.ID = id;
@@ -75,6 +87,12 @@ public class Student {
 	
 	public void SetPassword(String password) {
 		this.Password = password;
+	}
+	public String GetRole() {
+		return Role;
+	}
+	public void SetRole(String role) {
+		this.Role = role;
 	}
 	
 }

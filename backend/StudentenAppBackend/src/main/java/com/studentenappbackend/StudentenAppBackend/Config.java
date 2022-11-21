@@ -1,9 +1,6 @@
 package com.studentenappbackend.StudentenAppBackend;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-
-import repository.BarRepository;
 import service.BarService;
 import service.BerichtService;
 import service.StudentService;

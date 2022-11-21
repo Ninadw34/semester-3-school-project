@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entity.Bar;
 import entity.Bericht;
 import service.BerichtService;
 @CrossOrigin
@@ -24,32 +23,32 @@ public class BerichtController {
 	   BerichtService berichtService;
 
 	   @GetMapping("")
-	   public List<Bericht> GetAllBerichten(){
-	      return berichtService.GetAll();
+	   public List<Bericht> getAllBerichten(){
+	      return berichtService.getAll();
 	   }
 
 	   @GetMapping("/{id}")
-	   public Bericht GetByID(@PathVariable("id") int id) {
-	      return berichtService.GetByID(id);
+	   public Bericht getByID(@PathVariable("id") int id) {
+	      return berichtService.getByID(id);
 	   }
 
 	   @DeleteMapping("/delete/{id}")
-	   public void DeleteBericht(@PathVariable("id") int id) {
-		   berichtService.DeleteBericht(id);
+	   public void deleteBericht(@PathVariable("id") int id) {
+		   berichtService.deleteBericht(id);
 	   }
 
 	   @PostMapping("/addbericht")
-	   public void AddBericht(@RequestBody Bericht bar) {
-		   berichtService.AddBericht(bar);
+	   public void addBericht(@RequestBody Bericht bar) {
+		   berichtService.addBericht(bar);
 	   }
 	   @PutMapping("/update/{id}")
-	    public Bericht UpdateBericht
+	    public Bericht updateBericht
 	       (@PathVariable int id, @RequestBody Bericht berichtInfo) {
 	        
-	        Bericht bar = berichtService.GetByID(id);
+	        Bericht bar = berichtService.getByID(id);
 	        bar.SetText(berichtInfo.GetText());
 	        bar.SetLikes(berichtInfo.GetLikes());
 	        bar.setDatum(berichtInfo.getDatum());
-	        return berichtService.UpdateBericht(bar);
+	        return berichtService.updateBericht(bar);
 	    }
 }

@@ -4,10 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Service;
 
-import entity.Bar;
 import entity.Bericht;
 import repository.BerichtRepository;
 
@@ -20,23 +18,23 @@ public class BerichtService {
 	BerichtRepository berichtRep;
 
 
-	public List<Bericht> GetAll(){
+	public List<Bericht> getAll(){
 	      List<Bericht> berichten = new ArrayList<Bericht>();
 	      berichtRep.findAll().forEach(bericht -> berichten.add(bericht));
 	      return berichten;
 	}
 	
-	public void AddBericht(Bericht bericht) {
+	public void addBericht(Bericht bericht) {
 		berichtRep.save(bericht);
 	}
 	
-	public void DeleteBericht(int id) {
+	public void deleteBericht(int id) {
 		berichtRep.deleteById(id);
 	}
-	public Bericht GetByID(int id) {
+	public Bericht getByID(int id) {
 		return berichtRep.findById(id).get();
 	}
-	public Bericht UpdateBericht(Bericht bericht) {
+	public Bericht updateBericht(Bericht bericht) {
 		return berichtRep.save(bericht);
 	}
 }

@@ -25,6 +25,11 @@ public class StudentenVereniging {
 		this.VerenigingNaam = vnaam;
 		this.AantalLeden = aantalleden;
 	}
+	public StudentenVereniging(int id, String vnaam, int aantalleden) {
+		this.StudentenVerenigingID = id;
+		this.VerenigingNaam = vnaam;
+		this.AantalLeden = aantalleden;
+	}
 	public StudentenVereniging(int stvid) {
 		this.StudentenVerenigingID = stvid;
 	}

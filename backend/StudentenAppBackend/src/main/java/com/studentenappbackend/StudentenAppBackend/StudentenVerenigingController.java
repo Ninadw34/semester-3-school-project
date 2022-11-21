@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import entity.Bar;
 import entity.StudentenVereniging;
 import service.StudentenVerenigingService;
 
@@ -25,32 +24,32 @@ public class StudentenVerenigingController {
 	StudentenVerenigingService studentenVerenigingService;
 
 	   @GetMapping("")
-	   public List<StudentenVereniging> GetAllStudentenVerenigingen(){
-	      return studentenVerenigingService.GetAll();
+	   public List<StudentenVereniging> getAllStudentenVerenigingen(){
+	      return studentenVerenigingService.getAll();
 	   }
 
 	   @GetMapping("/{id}")
-	   public StudentenVereniging GetByID(@PathVariable("id") int id) {
-	      return studentenVerenigingService.GetByID(id);
+	   public StudentenVereniging getByID(@PathVariable("id") int id) {
+	      return studentenVerenigingService.getByID(id);
 	   }
 
 	   @DeleteMapping("/delete/{id}")
-	   public void DeleteStudent(@PathVariable("id") int id) {
-		   studentenVerenigingService.DeleteStudentenVereniging(id);
+	   public void deleteStudent(@PathVariable("id") int id) {
+		   studentenVerenigingService.deleteStudentenVereniging(id);
 	   }
 
 	   @PostMapping("/addstudentenvereniging")
-	   public void AddStudent(@RequestBody StudentenVereniging stv) {
-		   studentenVerenigingService.AddStudentenVereniging(stv);
+	   public void addStudent(@RequestBody StudentenVereniging stv) {
+		   studentenVerenigingService.addStudentenVereniging(stv);
 	   }
 	   
 	   @PutMapping("/update/{id}")
-	    public StudentenVereniging UpdateStudentenVereniging
+	    public StudentenVereniging updateStudentenVereniging
 	       (@PathVariable int id, @RequestBody StudentenVereniging studentenverenigingInfo) {
 	        
-		    StudentenVereniging studentenvereniging = studentenVerenigingService.GetByID(id);
+		    StudentenVereniging studentenvereniging = studentenVerenigingService.getByID(id);
 		    studentenvereniging.SetNaam(studentenverenigingInfo.GetNaam());
 		    studentenvereniging.SetAantalLeden(studentenverenigingInfo.GetAantalLeden());
-	        return studentenVerenigingService.UpdateStudentenVereniging(studentenvereniging);
+	        return studentenVerenigingService.updateStudentenVereniging(studentenvereniging);
 	    }
 }

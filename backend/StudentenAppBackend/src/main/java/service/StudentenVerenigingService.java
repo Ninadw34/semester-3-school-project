@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
-import entity.Bar;
 import entity.StudentenVereniging;
 import repository.StudentenVerenigingRepository;
 
@@ -18,23 +17,23 @@ public class StudentenVerenigingService {
 	StudentenVerenigingRepository studentenVerenigingRep;
 
 
-	public List<StudentenVereniging> GetAll(){
+	public List<StudentenVereniging> getAll(){
 	      List<StudentenVereniging> verenigingen = new ArrayList<StudentenVereniging>();
 	      studentenVerenigingRep.findAll().forEach(vereniging -> verenigingen.add(vereniging));
 	      return verenigingen;
 	}
 	
-	public void AddStudentenVereniging(StudentenVereniging studentenvereniging) {
+	public void addStudentenVereniging(StudentenVereniging studentenvereniging) {
 		studentenVerenigingRep.save(studentenvereniging);
 	}
 	
-	public void DeleteStudentenVereniging(int id) {
+	public void deleteStudentenVereniging(int id) {
 		studentenVerenigingRep.deleteById(id);
 	}
-	public StudentenVereniging GetByID(int id) {
+	public StudentenVereniging getByID(int id) {
 		return studentenVerenigingRep.findById(id).get();
 	}
-	public StudentenVereniging UpdateStudentenVereniging(StudentenVereniging studentenvereniging) {
+	public StudentenVereniging updateStudentenVereniging(StudentenVereniging studentenvereniging) {
 		return studentenVerenigingRep.save(studentenvereniging);
 	}
 }

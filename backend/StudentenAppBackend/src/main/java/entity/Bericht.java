@@ -44,6 +44,13 @@ public class Bericht {
 		this.Text = text;
 		this.Datum = datum;
 	}
+	public Bericht(int id, StudentenVereniging stvid, Bar barid, int likes, String text) {
+		this.BerichtID = id;
+		this.StudentenVerenigingID = stvid;
+		this.BarID = barid;
+		this.AantalLikes = likes;
+		this.Text = text;
+	}
 	
 	public Bericht(int berichtid) {
 		this.BerichtID = berichtid;

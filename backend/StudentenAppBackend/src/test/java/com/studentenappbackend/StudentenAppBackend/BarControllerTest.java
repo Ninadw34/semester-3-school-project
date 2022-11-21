@@ -1,101 +1,107 @@
 package com.studentenappbackend.StudentenAppBackend;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.mockito.ArgumentMatchers.anyList;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import org.aspectj.lang.annotation.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import entity.Bar;
 import repository.BarRepository;
 import service.BarService;
 
-@SpringBootTest
-public class BarControllerTest {
-	
+class BarControllerTest {
+
 	@InjectMocks
 	BarService barSer;
 	
 	@Mock
 	BarRepository barRep;
 	
-	Bar bar;
-	
-	@Before(value = "barTest")
-	public void setup() {
-		MockitoAnnotations.initMocks(bar);
+	@BeforeEach
+	void setUp() throws Exception {
+		MockitoAnnotations.initMocks(this);
 	}
-	
+
 	@Test
-	public void GetAllBarrenTest() {
+	void getAllBarTest() {
 		List<Bar> barren = new ArrayList<Bar>();
 		barren.add(new Bar(1, "Politka Kaffee", "Leuven"));
-		barren.add(new Bar(3, "Recup", "Leuven"));
-		barren.add(new Bar(8, "T' Elixier", "Heverlee"));
+		barren.add(new Bar(3, "T' Elixier", "Heverlee"));
+		barren.add(new Bar(8, "Doc's bar", "Leuven"));
+		barren.add(new Bar(2, "T' Archief", "Leuven"));
 		
-		when(barSer.GetAll()).thenReturn(barren);
+		when(barSer.getAll()).thenReturn(barren);
 		
-		List<Bar> barList = barSer.GetAll();
+		List<Bar> barList = barSer.getAll();
 		
 		assertNotNull(barList);
-		assertEquals(3, barList.size());
-		
+		assertEquals(4, barList.size());
 	}
 	
 	@Test
-	public void GetBarByIDTest() throws Exception {
-
-		when(barSer.GetByID(4)).thenReturn(new Bar(4, "T' Elixier", "Heverlee"));
+	void addBarTest() {
+		Bar newBar = new Bar(7, "Politka Kaffee", "Leuven");
 		
-		bar = barSer.GetByID(4);
+		barSer.addBar(newBar);
 		
-		assertNotNull(bar);
-		assertEquals(4, bar.BarID);
-		assertEquals("T' Elixier", bar.BarNaam);
-		assertEquals("Heverlee", bar.Locatie);
-	}
-
-	@Test
-	public void AddBarTest() {
-		bar = new Bar(2, "Doc's bar", "Leuven");
-		
-		barSer.AddBar(bar);
-		
-		assertNotNull(bar);
-		assertEquals(2, bar.BarID);
-		assertEquals("Doc's bar", bar.BarNaam);
-		assertEquals("Leuven", bar.Locatie);
+		assertNotNull(newBar);
+		assertThat(newBar.BarID).isGreaterThan(0);
+		assertEquals(7, newBar.BarID);
+		assertEquals("Politka Kaffee", newBar.BarNaam);
+		assertEquals("Leuven", newBar.Locatie);
 	}
 	
 	@Test
-	public void UpdateBarTest() {
+	void getBarByIDTest() {
 		
+		Bar newBar = new Bar(6, "T' Elixier", "Heverlee");
+		when(barRep.findById(6)).thenReturn(Optional.of(newBar));
+		
+		Bar bar = barSer.getByID(6);
+		
+		assertNotNull(newBar);
+		assertThat(newBar.BarID).isGreaterThan(0);
+		assertEquals(6, bar.GetID());
 	}
 	
 	@Test
-	public void DeleteBarTest() {
-		bar = new Bar(5, "Economika", "Leuven");
+	void deleteBarTest() {
+		Bar newBar = new Bar(11, "Doc's bar", "Leuven");
+		when(barRep.findById(11)).thenReturn(Optional.of(newBar));
 		
-		assertNotNull(bar);
-		assertEquals(bar.BarID, 5);
+		assertNotNull(newBar);
+		assertThat(newBar.BarID).isGreaterThan(0);
 		
-		barSer.DeleteBar(5);
+		barSer.deleteBar(11);
 		
-		assertNull(bar);
-		assertNotEquals(bar.BarID, 5);		
+		verify(barRep).deleteById(newBar.GetID());
+	}
+	
+	@Test
+	void updateBarTest() {
+		Bar newBar = new Bar(1, "Letteren", "Leuven");
+		
+		assertNotNull(newBar);
+		assertEquals(1, newBar.BarID);
+		assertEquals("Letteren", newBar.BarNaam);
+		assertEquals("Leuven", newBar.Locatie);
+		
+		newBar.SetNaam("LetterenTest");
+		newBar.SetLocatie("Oud-Heverlee");
+		
+		barSer.updateBar(newBar);
+		
+		assertEquals("LetterenTest", newBar.BarNaam);
+		assertEquals("Oud-Heverlee", newBar.Locatie);
 	}
 }
