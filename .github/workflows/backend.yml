@@ -24,6 +24,14 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Run tests with Maven
         run: mvn -B package --file backend/StudentenAppBackend/pom.xml -DskipTests
+      - name: Show reports
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
         
   build:
     runs-on: ubuntu-latest
