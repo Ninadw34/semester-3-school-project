@@ -25,13 +25,10 @@ jobs:
       - name: Run tests with Maven
         run: mvn -B package --file backend/StudentenAppBackend/pom.xml -DskipTests
       - name: Show reports
-        uses: dorny/test-reporter@v1
-        if: always()
+        if: success() || failure()
         with:
-          name: Maven Tests
-          path: backend/StudentenAppBackend/*.xml
-          reporter: java-junit
-          fail-on-error: true
+          name: test-results
+          path: jest-junit.xml
         
   build:
     runs-on: ubuntu-latest
