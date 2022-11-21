@@ -7,7 +7,7 @@ on:
     branches: [ main ]
     
 jobs:
-  run_tests:
+  unittests:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repository
@@ -23,7 +23,7 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: Run tests with Maven
-        run: mvn -B test --file pom.xml
+        run: mvn -B test --file backend/StudentenAppBackend/pom.xml
         
   build:
     runs-on: ubuntu-latest
