@@ -25,11 +25,13 @@ jobs:
       - name: Run tests with Maven
         run: mvn -B package --file backend/StudentenAppBackend/pom.xml -DskipTests
       - name: Show reports
+        uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: test-results
-          path: jest-junit.xml
-        
+          name: Test Results
+          path: backend/StudentenAppBackend/target/surefire-reports/TEST-TestSuite.xml
+          reporter: java-junit
+
   build:
     runs-on: ubuntu-latest
     steps:
