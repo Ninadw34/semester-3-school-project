@@ -50,6 +50,7 @@ jobs:
         with:
           name: Unittest reports
           path: backend/StudentenAppBackend/target/surefire-reports/*.xml
+          reporter: java-junit
           testFormat: "junit"
           testPaths: "**/surefire-reports/*.xml"
 
