@@ -49,7 +49,7 @@ jobs:
         if: always()
         with:
           name: Unittest reports
-          path: target/surefire-reports/*.xml
+          path: backend/StudentenAppBackend/target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: true
 
