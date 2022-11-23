@@ -49,6 +49,7 @@ jobs:
         if: always()
         with:
           name: Unittest reports
+          path: backend/StudentenAppBackend/target/surefire-reports/*.xml
           testFormat: "junit"
           testPaths: "**/surefire-reports/*.xml"
 
