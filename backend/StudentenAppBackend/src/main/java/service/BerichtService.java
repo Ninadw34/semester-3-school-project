@@ -7,7 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 import entity.Bericht;
+import entity.StudentenVereniging;
 import repository.BerichtRepository;
+import repository.StudentenVerenigingRepository;
 
 
 @Service
@@ -16,6 +18,9 @@ public class BerichtService {
 	
 	@Autowired
 	BerichtRepository berichtRep;
+	
+	@Autowired
+	StudentenVerenigingRepository stvRep;
 
 
 	public List<Bericht> getAll(){
@@ -23,7 +28,7 @@ public class BerichtService {
 	      berichtRep.findAll().forEach(bericht -> berichten.add(bericht));
 	      return berichten;
 	}
-	
+
 	public void addBericht(Bericht bericht) {
 		berichtRep.save(bericht);
 	}
