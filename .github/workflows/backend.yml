@@ -44,9 +44,14 @@ jobs:
           restore-keys: ${{ runner.os }}-m2
       - name: Run unittests
         run: mvn -B package --file backend/StudentenAppBackend/pom.xml -DskipTests
-      - name: Test Report
-        if: ${{ always() }}
-        uses: scacap/action-surefire-report@v1
+      - name: Test report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Unittest reports
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
 
   build:
     runs-on: ubuntu-latest
