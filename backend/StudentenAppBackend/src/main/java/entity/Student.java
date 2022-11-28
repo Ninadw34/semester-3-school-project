@@ -1,4 +1,5 @@
 package entity;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
@@ -36,6 +38,12 @@ public class Student {
 	@Column(name = "role")
 	public String Role;
 	
+	@ManyToMany
+	@JoinTable(name = "student_bar",
+    joinColumns = @JoinColumn(name = "idstudent"),
+    inverseJoinColumns = @JoinColumn(name = "idbar"))
+	public List<Bar> Barren = new ArrayList<>();
+	
 	public Student(String naam, String email, String password, StudentenVereniging stvid, String role) {
 		this.Naam = naam;
 		this.Email = email;
@@ -51,6 +59,10 @@ public class Student {
 		this.StudentenVerenigingID = stvid;
 		this.Role = role;
 	}
+	public Student(List<Bar> barren) {
+		this.Barren = barren;
+	}
+	
 	public Student(int id) {
 		this.ID = id;
 	}
@@ -97,6 +109,12 @@ public class Student {
 	}
 	public void SetRole(String role) {
 		this.Role = role;
+	}
+	public List<Bar> getBarren(){
+		return Barren;
+	}
+	public void setBarren(List<Bar> barren){
+		this.Barren = barren;
 	}
 	
 }

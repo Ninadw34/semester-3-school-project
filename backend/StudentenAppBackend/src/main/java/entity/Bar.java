@@ -1,10 +1,14 @@
 package entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class Bar {
@@ -19,6 +23,9 @@ public class Bar {
 	
 	@Column(name = "locatie")
 	public String Locatie;
+	
+	@ManyToMany(mappedBy = "Barren")
+	public List<Student> Studenten = new ArrayList<>();
 	
 	public Bar(int barid, String barnaam, String locatie) {
 		this.BarID = barid;
@@ -59,6 +66,12 @@ public class Bar {
 	
 	public void SetLocatie(String locatie) {
 		this.Locatie = locatie;
+	}
+	public List<Student> getStudenten(){
+		return Studenten;
+	}
+	public void setStudenten(List<Student> studenten){
+		this.Studenten = studenten;
 	}
 	
 	@Override

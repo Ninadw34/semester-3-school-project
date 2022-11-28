@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
-import entity.Bericht;
 import entity.Student;
 import repository.StudentRepository;
 
@@ -37,4 +36,5 @@ public class StudentService {
 	public Student updateStudent(Student student) {
 		return studentRep.save(student);
 	}
+	
 }
