@@ -11,11 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - id: pmd
-        uses: rtjl/pmd-analyzer-action@v0.1.5-alpha
-        with:
-          pmd-version: '6.31.0'
-          rule-path: 'ruleset.xml'
+      - uses: ashkumar-wtc/setup-pmd@v1
+      - name: run-pmd
+        run: pmd -d backend/StudentenAppBackend -R ruleset.xml -f xml --failOnViolation false > /reports/pmd-report.xml
       
   build:
     runs-on: ubuntu-latest
