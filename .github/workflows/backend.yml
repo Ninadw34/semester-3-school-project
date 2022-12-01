@@ -21,7 +21,7 @@ jobs:
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
     - name: Build with Maven
-      run: mvn -B backend/StudentenAppBackend verify pmd:pmd
+      run: mvn -B package --file backend/StudentenAppBackend/pom.xml verify pmd:pmd
     - uses: jwgmeligmeyling/pmd-github-action@master
       with:
         path: backend/StudentenAppBackend/reports/pmd-report.xml
