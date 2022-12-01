@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="customruleset">
+  <rule ref="rulesets/strings.xml"/>
+  <rule ref="rulesets/unusedcode.xml/UnusedLocalVariable"/>
+  <rule ref="rulesets/unusedcode.xml/UnusedPrivateField"/>
+  <rule ref="rulesets/imports.xml/DuplicateImports"/>
+  <rule ref="rulesets/basic.xml/UnnecessaryConversionTemporary"/>
+</ruleset>
