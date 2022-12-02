@@ -21,9 +21,14 @@ jobs:
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
       - name: PMD Report
-        run: mvn -B verify pmd:pmd
+        run: |
+          cd ./backend
+          cd ./StudentenAppBackend
+          mvn -B verify pmd:pmd
       - name: pmd results
         uses: actions/upload-artifact@v1
         with:
           name: pmd_results
           path: backend/StudentenAppBackend/reports/pmd-report.xml
+      - name: PMD Check
+        run: mvn -B verify pmd:check   
