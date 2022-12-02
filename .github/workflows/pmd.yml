@@ -8,10 +8,6 @@ on:
     
 jobs:
   static_code_analysis:
-    permissions:
-      contents: read
-      security-events: write
-      actions: read
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
