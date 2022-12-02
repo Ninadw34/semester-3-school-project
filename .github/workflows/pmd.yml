@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v1
         with:
           name: Pmd Result
-          path: reports/pmd-report.xml  
+          path: backend/StudentenAppBackend/reports/pmd-report.xml  
