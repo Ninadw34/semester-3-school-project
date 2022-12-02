@@ -15,12 +15,11 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: "17"
-      - uses: actions/cache@v1
+      - uses: actions/cache@v2
         with:
           path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
       - name: PMD Report
         run: mvn pmd:pmd
       - name: pmd results
