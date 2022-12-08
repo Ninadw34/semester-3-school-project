@@ -23,6 +23,7 @@ import StudentenAdmin from "./pages/admin/student/StudentenAdmin";
 import Registreren from "./pages/Registreren";
 import './css/App.css';
 
+
 function App() {
   return (
     <>

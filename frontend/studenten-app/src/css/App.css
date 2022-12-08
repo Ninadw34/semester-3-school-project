@@ -9,3 +9,9 @@ body {
     background-blend-mode: luminosity;
     background-color: gray;
 }
+.messages {
+    background-color: white;
+    color: black;
+    width: 200px;
+    height: 300px;
+}
