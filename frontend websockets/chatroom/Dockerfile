@@ -13,7 +13,10 @@ COPY . ./
 EXPOSE 3000
 EXPOSE 5500
 
-CMD [ "npm", "start" ]
-
 WORKDIR /app/src
 CMD [ "node", "Websocket.js" ]
+
+WORKDIR /app
+CMD [ "npm", "start" ]
+
+
