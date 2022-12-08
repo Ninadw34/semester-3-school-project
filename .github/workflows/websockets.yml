@@ -1,4 +1,4 @@
-name: Frontend applicatie
+name: Websockets
 
 on:
   push:
