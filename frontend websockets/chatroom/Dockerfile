@@ -16,4 +16,4 @@ EXPOSE 5500
 CMD [ "npm", "start" ]
 
 RUN cd ./src
-CMD ["node", "Websocket.js"]
+CMD ["node Websocket.js"]
