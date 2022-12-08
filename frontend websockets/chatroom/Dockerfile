@@ -14,5 +14,6 @@ EXPOSE 3000
 EXPOSE 5500
 
 CMD [ "npm", "start" ]
-RUN cd /src
+
+WORKDIR /app/src
 RUN node Websocket.js
