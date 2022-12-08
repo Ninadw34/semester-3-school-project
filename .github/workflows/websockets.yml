@@ -15,5 +15,5 @@ jobs:
         working-directory: ./frontend websockets/chatroom
         run: |
           echo "${{ secrets.dockerPW }}" | docker login -u "ninadw34" --password-stdin
-          docker image build -t ninadw34/frontend-app-react .
+          docker image build -t ninadw34/websockets-react .
           docker push ninadw34/websockets-react
