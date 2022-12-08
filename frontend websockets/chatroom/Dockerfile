@@ -13,4 +13,4 @@ COPY . ./
 EXPOSE 3000
 EXPOSE 5500
 
-CMD [ "npm", "start", "server"]
+CMD [ "npm", "start"]
