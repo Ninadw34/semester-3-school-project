@@ -30,3 +30,14 @@ h1 {
     padding-top: 10px;
     padding-bottom: 10px;
 }
+.chatroomLink {
+    background-color: blue;    
+    margin: auto;
+    text-align: center;
+    width: 600px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.chatroomLink a {
+    color: white !important;
+}

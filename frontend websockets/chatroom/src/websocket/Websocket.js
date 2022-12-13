@@ -11,7 +11,7 @@ const server = http.createServer(exp);
 
 const socketIo = socket(server ,{
     cors: {
-      origin: 'http://localhost:3000',
+      origin: 'http://localhost:3001',
 }});
 
 exp.get('/chat', (req, res) => {
