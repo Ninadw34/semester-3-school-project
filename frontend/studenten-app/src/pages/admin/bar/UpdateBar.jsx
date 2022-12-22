@@ -53,16 +53,16 @@ const submitActionHandler = (event) => {
                 <label>Bar naam:</label>
               </li>
               <li>
-                <input type="text" name="barNaam" value={BarNaam} onChange={barNaamChange}/>
+                <input type="text" id="barNaam" name="barNaam" value={BarNaam} onChange={barNaamChange}/>
               </li>
               <li>
                 <label>Locatie:</label>
               </li>
               <li>
-                <input type="text" name="barLocatie" value={Locatie} onChange={locatieChange}/>
+                <input type="text" id="barLocatie" name="barLocatie" value={Locatie} onChange={locatieChange}/>
               </li>
               <li>
-                <input type="submit" value="Bar Aanpassen"/>
+                <input type="submit" id="barSubmit" value="Bar Aanpassen"/>
               </li>
             </ul>
           </form>
