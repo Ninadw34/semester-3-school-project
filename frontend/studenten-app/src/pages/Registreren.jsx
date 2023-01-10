@@ -59,28 +59,34 @@ class Registreren extends React.Component{
   
 render(){
     return (
-    
-    <div className="ContentContainer">
-        <form onSubmit={this.submitActionHandler}>
-           
-            <label>Gebruikersnaam</label>
-            <input type="text" name="Gebruikersnaam" value={this.state.Naam} onChange={this.naamChange}/>
-            <label>School email</label>
-            <input type="text" name="Email" value={this.state.Email} onChange={this.emailChange}/>
-            <select onChange={this.studentenverenigingChange}>
-                <option>--- Kies studentenvereniging ---</option>
-            {
-              this.state.studentenvereniging.map(
-                stv =>
-                <option value={stv.StudentenVerenigingID}>{stv.VerenigingNaam}</option>
-              )}
-            </select>
-            <label>Wachtwoord</label>
-            <input type="password" name="Password" value={this.state.Password} onChange={this.passwordChange}/>
-            <input type="submit" value="Account aanmaken"/>
-        </form>
+    <>      <div className="ContentContainer">
+      <div className="loginContainer">
+        <div className="loginMidContainer">
+          <h1>Account aanmaken</h1>
+          <form onSubmit={this.submitActionHandler}>
+            <ul>
+                <li><label>Gebruikersnaam</label></li>
+                <li><input type="text" name="Gebruikersnaam" value={this.state.Naam} onChange={this.naamChange}/></li>
+                <li><label>School email</label></li>
+                <li><input type="text" name="Email" value={this.state.Email} onChange={this.emailChange}/></li>
+                <li><select onChange={this.studentenverenigingChange}>
+                    <option>--- Kies studentenvereniging ---</option>
+                {
+                  this.state.studentenvereniging.map(
+                    stv =>
+                    <option value={stv.StudentenVerenigingID}>{stv.VerenigingNaam}</option>
+                  )}
+                </select>
+                </li>
+                <li><label>Wachtwoord</label></li>
+                <li><input type="password" name="Password" value={this.state.Password} onChange={this.passwordChange}/></li>
+                <li><input type="submit" value="Account aanmaken"/></li>
+              </ul>
+          </form>
+        </div>
+      </div>
     </div>
-      
+      </>
     );
   };
 }

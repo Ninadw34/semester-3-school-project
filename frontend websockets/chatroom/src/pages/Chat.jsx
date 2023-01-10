@@ -59,7 +59,8 @@ const Chat = () =>{
 	}
 
 	return (
-		<div className="ContentContainer">
+		<>
+		<div className="ChatContent">
 			<form onSubmit={onMessageSubmit}>
 				<div className="NaamVeld">
 					<input name="name" onChange={(e) => NaamOfBerichtChange(e)} value={state.name} label="Name" placeholder="Naam..."/>
@@ -69,7 +70,7 @@ const Chat = () =>{
 						name="message" onChange={(e) => NaamOfBerichtChange(e)} value={state.message} label="Message" placeholder="Typ een bericht..."
 					/>
 				</div>
-        <div>
+        <div className="colorSelectContainer">
           <select id="selectColor">
               <option value="zwart">Zwart</option>
               <option value="rood">Rood</option>
@@ -77,10 +78,12 @@ const Chat = () =>{
         </div>
 				<button onClick={KleurChange}>Versturen</button>
 			</form>
-			<div className="messages">
-				{ShowChat()}
-			</div>
+			
 		</div>
+		<div className="ChatBoxContainer">
+			{ShowChat()}
+		</div>
+	</>
   );
 };
 export default Chat;

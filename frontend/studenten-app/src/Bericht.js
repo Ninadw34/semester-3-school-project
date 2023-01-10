@@ -39,6 +39,7 @@ class Bericht extends React.Component {
                         <p>{berichten.Text}</p>
                         <h3>Facbar: {berichten.BarID.BarNaam}</h3>                          
                     </div>
+                    <p>Likes: {berichten.AantalLikes}</p>
                 </div>
             
             </div>

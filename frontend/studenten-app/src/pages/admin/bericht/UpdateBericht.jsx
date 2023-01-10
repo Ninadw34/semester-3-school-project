@@ -33,7 +33,7 @@ const textChange = (event) => {
 
 
   const submitActionHandler = (event) => {
-    if(!this.Datum || !this.AantalLikes || !this.Text){
+    if(!Datum || !AantalLikes || !Text){
       alert("Error, vul alle velden in!");
     }
     else{

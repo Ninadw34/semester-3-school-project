@@ -33,7 +33,7 @@ class AddBericht extends React.Component{
       }
 
       submitActionHandler = (event) => {
-        if(!this.StudentenVerenigingID || !this.BarID || !this.Datum || !this.AantalLikes || !this.Text){
+        if(!this.state.StudentenVerenigingID || !this.state.BarID || !this.state.Datum || !this.state.AantalLikes || !this.state.Text){
           alert("Error, vul alle velden in!");
         }
         else{
@@ -115,7 +115,7 @@ render(){
               <input type="text" name="AantalLikes" value={this.state.AantalLikes} onChange={this.aantalLikesChange}/>
             </li>
             <li>
-              <label>Datum</label>
+              <label>Datum (yyyy-mm-dd)</label>
             </li>
             <li>
               <input type="text" name="Datum" value={this.state.Datum} onChange={this.datumChange}/>

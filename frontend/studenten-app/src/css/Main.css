@@ -6,7 +6,7 @@
 }
 .loginContainer{
     margin: auto;
-    width: 45%;
+    width: 35%;
     background-color: #123c76 !important;
     border-radius: 5px;
     color: white;
@@ -40,4 +40,27 @@ h1 {
 }
 .chatroomLink a {
     color: white !important;
+}
+.loginContainer {
+    display: flex;
+}
+.loginMidContainer {
+    margin: auto;
+}
+.loginMidContainer li{
+    margin-top: 20x;
+    margin-bottom: 20px;
+}
+.loginMidContainer input[type="submit"] {
+    text-decoration: none;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #147FA1;
+    border: none;
+    transition: 0.3s;
+    color: white;
+    border-radius: 5px;
+}
+.registerLink {
+    color: white;
 }
